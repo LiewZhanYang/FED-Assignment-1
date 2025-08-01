@@ -3,217 +3,278 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <script src="script.js"></script>
-    <script>
-      window.addEventListener("load", (event) => {
-        currentSlide(1);
-      });
-    </script>
+    <title>Popular Online Bookstore</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- header -->
+    <!-- Enhanced Header -->
     <header>
-      <img src="image/logopic.png" alt="logopic" class="logopic" />
-
-      <a href="#" class="logo">POPULAR ONLINE </a>
+      <div class="logo-container">
+        <div class="logo-pic">PO</div>
+        <a href="#" class="logo">POPULAR ONLINE</a>
+      </div>
 
       <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="ourbook.html">Our Book</a>
-        <a href="stationery.html">Stationery</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="news&events.html">Review</a>
+        <a href="#home">Home</a>
+        <a href="#books">Our Books</a>
+        <a href="#stationery">Stationery</a>
+        <a href="#promotion">Promotion</a>
+        <a href="#reviews">Reviews</a>
       </nav>
 
-      <a href="account.html"> <i class="ri-user-line"></i></a>
+      <div class="user-icon">
+        <i class="fas fa-user"></i>
+      </div>
     </header>
-    <!-- header -->
 
-    <!-- carousel -->
-    <section class="carousel">
-      <div class="pages">
-        <img src="image/carousel1.png" alt="image1" style="width: 100%" />
+    <!-- Enhanced Carousel -->
+    <section class="carousel-section">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=500&fit=crop"
+            alt="Featured Books"
+          />
+        </div>
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=500&fit=crop"
+            alt="New Arrivals"
+          />
+        </div>
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&h=500&fit=crop"
+            alt="Best Sellers"
+          />
+        </div>
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&h=500&fit=crop"
+            alt="Special Offers"
+          />
+        </div>
       </div>
 
-      <div class="pages">
-        <img src="image/carousel2.png" alt="image2" style="width: 100%" />
-      </div>
+      <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carousel-nav carousel-next" onclick="changeSlide(1)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
 
-      <div class="pages">
-        <img src="image/carousel3.png" alt="image3" style="width: 100%" />
-      </div>
-
-      <div class="pages">
-        <img src="image/carousel4.png" alt="image4" style="width: 100%" />
-      </div>
-
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-      <br />
-
-      <div style="text-align: center">
-        <span class="dot" onclick="currentSlide(1)"></span>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
         <span class="dot" onclick="currentSlide(4)"></span>
       </div>
     </section>
 
-    <!-- hotseller -->
-    <section class="products" id="products">
-      <div class="headercart">
-        <h1 class="heading">HotSellers!!!</h1>
-        <div class="cartb">
-          <a href="#"><i class="ri-shopping-cart-line"></i></a>
+    <!-- Enhanced Products Section -->
+    <section class="products-section">
+      <div class="section-header">
+        <h2 class="section-title">Hot Sellers 🔥</h2>
+        <div class="cart-icon" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
         </div>
       </div>
 
-      <div class="box-container">
+      <div class="products-grid">
         <div
-          class="box"
-          data-product-id="0"
-          data-product-title="Elon Musk"
-          data-product-price="12.99"
+          class="product-card fade-in-up"
+          data-product='{"id": 1, "title": "Elon Musk", "price": 12.99, "originalPrice": 15.99, "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop"}'
         >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn" onclick="addToCart(this)"
-                >add to cart</a
-              >
-              <a href="#" class="fas fa-share"></a>
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop"
+              alt="Elon Musk"
+            />
+            <div class="discount-badge">-19%</div>
+            <div class="product-actions">
+              <button class="action-btn heart">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="action-btn cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+              <button class="action-btn share">
+                <i class="fas fa-share"></i>
+              </button>
             </div>
           </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
+          <div class="product-info">
+            <h3 class="product-title">Elon Musk</h3>
+            <div class="product-price">
+              <span class="current-price">$12.99</span>
+              <span class="original-price">$15.99</span>
+            </div>
           </div>
         </div>
 
         <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
+          class="product-card fade-in-up"
+          data-product='{"id": 2, "title": "Not Here To Stay", "price": 40.50, "originalPrice": 45.50, "image": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop"}'
         >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn" onclick="addToCart(this)"
-                >add to cart</a
-              >
-              <a href="#" class="fas fa-share"></a>
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop"
+              alt="Not Here To Stay"
+            />
+            <div class="discount-badge">-11%</div>
+            <div class="product-actions">
+              <button class="action-btn heart">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="action-btn cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+              <button class="action-btn share">
+                <i class="fas fa-share"></i>
+              </button>
             </div>
           </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
+          <div class="product-info">
+            <h3 class="product-title">Not Here To Stay</h3>
+            <div class="product-price">
+              <span class="current-price">$40.50</span>
+              <span class="original-price">$45.50</span>
+            </div>
           </div>
         </div>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <div
+          class="product-card fade-in-up"
+          data-product='{"id": 3, "title": "BlackPink K Pop N1", "price": 67.50, "originalPrice": 267.50, "image": "https://images.unsplash.com/photo-1481304494613-c2a3b0e2b4b2?w=300&h=400&fit=crop"}'
+        >
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1481304494613-c2a3b0e2b4b2?w=300&h=400&fit=crop"
+              alt="BlackPink K Pop N1"
+            />
+            <div class="discount-badge">-75%</div>
+            <div class="product-actions">
+              <button class="action-btn heart">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="action-btn cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+              <button class="action-btn share">
+                <i class="fas fa-share"></i>
+              </button>
             </div>
           </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
+          <div class="product-info">
+            <h3 class="product-title">BlackPink K Pop N1</h3>
+            <div class="product-price">
+              <span class="current-price">$67.50</span>
+              <span class="original-price">$267.50</span>
+            </div>
           </div>
         </div>
 
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <div
+          class="product-card fade-in-up"
+          data-product='{"id": 4, "title": "Fall Of The School", "price": 31.20, "originalPrice": 50.00, "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop"}'
+        >
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop"
+              alt="Fall Of The School"
+            />
+            <div class="discount-badge">-38%</div>
+            <div class="product-actions">
+              <button class="action-btn heart">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="action-btn cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+              <button class="action-btn share">
+                <i class="fas fa-share"></i>
+              </button>
             </div>
           </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
+          <div class="product-info">
+            <h3 class="product-title">Fall Of The School</h3>
+            <div class="product-price">
+              <span class="current-price">$31.20</span>
+              <span class="original-price">$50.00</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- hotseller -->
-
-    <!-- footer -->
-    <section class="footer">
-      <div class="box-container">
-        <div class="box">
-          <br />
-          <h3>About Us</h3>
-          <a href="location.html">STORE LOCATION</a>
-          <a href="career.html">CAREER</a>
-        </div>
-
-        <div class="box">
-          <br />
-          <h3>INFO</h3>
-          <a href="privacy.html">PRIVACY POLICY</a>
-          <a href="contactus.html">CONTACT US</a>
-        </div>
-
-        <div class="credit">
-          <i class="ri-facebook-fill"></i>
-          <i class="ri-youtube-line"></i>
-          <i class="ri-instagram-line"></i>
-        </div>
+    <!-- Enhanced Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3 class="cart-title">Shopping Cart</h3>
+        <button class="close-cart" onclick="toggleCart()">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
-    </section>
 
-    <!-- Cart Button -->
-    <div class="cart">
-      <h2>CART</h2>
-
-      <div class="listCart">
-        <div class="item">
-          <img src="image/book1.png" alt="image1" />
-          <div class="content">
-            <div class="name">Product Name</div>
-            <div class="price">$50/1 product</div>
-          </div>
-          <div class="quantity">
-            <button onclick="changeQuantity({productid}, '-')">-</button>
-            <span class="value">3</span>
-            <button onclick="changeQuantity({productid}, '+')">+</button>
-          </div>
+      <div class="cart-items" id="cartItems">
+        <div
+          class="cart-empty"
+          style="text-align: center; padding: 2rem; color: #9ca3af"
+        >
+          <i
+            class="fas fa-shopping-cart"
+            style="font-size: 3rem; margin-bottom: 1rem"
+          ></i>
+          <p>Your cart is empty</p>
         </div>
       </div>
 
-      <div class="buttons">
-        <div class="close">CLOSE</div>
-        <div class="checkout">
-          <a href="checkout.html">checkout</a>
-        </div>
+      <div class="cart-footer">
+        <button class="checkout-btn" onclick="checkout()">
+          Proceed to Checkout
+        </button>
       </div>
     </div>
 
-    <script src="cart.js"></script>
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <a href="#location">Store Location</a>
+          <a href="#career">Career</a>
+          <a href="#about">Our Story</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Information</h3>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#shipping">Shipping Info</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Search Bar (Hidden by default) -->
+    <div id="searchBarContainer"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
