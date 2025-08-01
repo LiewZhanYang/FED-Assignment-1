@@ -3,353 +3,490 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <link href="ourbook.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
+    <title>Our Books - Popular Online Bookstore</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="ourbook.css" />
   </head>
   <body>
-    <!-- header -->
+    <!-- Enhanced Header -->
     <header>
-      <img src="image/logopic.png" alt="logopic" class="logopic" />
-
-      <a href="#" class="logo">POPULAR ONLINE </a>
+      <div class="logo-container">
+        <div class="logo-pic">PO</div>
+        <a href="../index.html" class="logo">POPULAR ONLINE</a>
+      </div>
 
       <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="ourbook.html">Our Book</a>
-        <a href="stationery.html">Stationery</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="news&events.html">Review</a>
+        <a href="../index.html">Home</a>
+        <a href="ourbook.html" class="active">Our Books</a>
+        <a href="../stationery.html">Stationery</a>
+        <a href="../promotion.html">Promotion</a>
+        <a href="../reviews.html">Reviews</a>
       </nav>
 
-      <a href="account.html"> <i class="ri-user-line"></i></a>
+      <div class="header-actions">
+        <div class="search-toggle" onclick="toggleSearch()">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+        <div class="user-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
     </header>
-    <!-- header -->
 
-    <!-- besidebar -->
+    <!-- Enhanced Search Bar -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search books by title, author, or category..."
+          id="searchInput"
+        />
+        <button class="search-close" onclick="toggleSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
 
-    <section class="bar">
-      <h1>CATEGOTY</h1>
-      <a href="#english-book">ENGLISH</a>
-      <a href="#cbook">CHINESE</a>
-      <a href="#fbook">FICTION</a>
-      <a href="#bbook">BUSINESS</a>
-    </section>
+    <!-- Enhanced Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Categories</h2>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
 
-    <div class="vertical-line"></div>
-
-    <!-- besidebar -->
-
-    <!-- book -->
-
-    <section class="products" id="english-book">
-      <h1 class="heading">ENGLISH BOOK</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
-        </div>
-
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
+      <nav class="category-nav">
+        <a
+          href="#english-book"
+          class="category-link active"
+          data-category="english"
         >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
+          <i class="fas fa-globe-americas"></i>
+          <span>English Books</span>
+          <span class="count">12</span>
+        </a>
+        <a href="#chinese-book" class="category-link" data-category="chinese">
+          <i class="fas fa-yin-yang"></i>
+          <span>Chinese Books</span>
+          <span class="count">8</span>
+        </a>
+        <a href="#fiction-book" class="category-link" data-category="fiction">
+          <i class="fas fa-dragon"></i>
+          <span>Fiction Books</span>
+          <span class="count">15</span>
+        </a>
+        <a href="#business-book" class="category-link" data-category="business">
+          <i class="fas fa-briefcase"></i>
+          <span>Business Books</span>
+          <span class="count">10</span>
+        </a>
+      </nav>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
+      <!-- Filter Options -->
+      <div class="filter-section">
+        <h3>Filter by Price</h3>
+        <div class="price-filter">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="100"
+            class="price-slider"
+            id="priceRange"
+          />
+          <div class="price-display">
+            <span>$0</span>
+            <span id="maxPrice">$100</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="products" id="cbook">
-      <h1 class="heading">CHINESE BOOK</h1>
+      <div class="filter-section">
+        <h3>Sort by</h3>
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
+          <option value="discount">Highest Discount</option>
+        </select>
+      </div>
+    </aside>
 
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
-        </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Our Books</span>
+      </nav>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Our Book Collection</h1>
+        <p>Discover amazing books across different categories</p>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" data-view="list">
+            <i class="fas fa-list"></i>
+          </button>
         </div>
       </div>
-    </section>
 
-    <section class="products" id="fbook">
-      <h1 class="heading">FICTION BOOK</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
+      <!-- English Books Section -->
+      <section class="products-section" id="english-book">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-globe-americas"></i>
+            English Books
+          </h2>
+          <div class="section-actions">
+            <button class="load-more-btn" onclick="loadMoreBooks('english')">
+              Load More
+            </button>
           </div>
         </div>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <div class="products-grid" data-category="english">
+          <div
+            class="product-card"
+            data-product='{"id": 1, "title": "Elon Musk Biography", "price": 12.99, "originalPrice": 15.99, "category": "english", "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop"}'
+          >
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop"
+                alt="Elon Musk Biography"
+              />
+              <div class="discount-badge">-19%</div>
+              <div class="product-actions">
+                <button class="action-btn heart" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="action-btn cart" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="action-btn share" onclick="shareProduct(this)">
+                  <i class="fas fa-share"></i>
+                </button>
+              </div>
+              <div class="quick-view" onclick="quickView(this)">
+                <i class="fas fa-eye"></i>
+                Quick View
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Elon Musk Biography</h3>
+              <p class="product-author">by Walter Isaacson</p>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.2)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$12.99</span>
+                <span class="original-price">$15.99</span>
+              </div>
             </div>
           </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
+
+          <div
+            class="product-card"
+            data-product='{"id": 2, "title": "Not Here To Stay", "price": 40.50, "originalPrice": 45.50, "category": "english", "image": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop"}'
+          >
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop"
+                alt="Not Here To Stay"
+              />
+              <div class="discount-badge">-11%</div>
+              <div class="product-actions">
+                <button class="action-btn heart" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="action-btn cart" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="action-btn share" onclick="shareProduct(this)">
+                  <i class="fas fa-share"></i>
+                </button>
+              </div>
+              <div class="quick-view" onclick="quickView(this)">
+                <i class="fas fa-eye"></i>
+                Quick View
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Not Here To Stay</h3>
+              <p class="product-author">by Contemporary Author</p>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(4.8)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$40.50</span>
+                <span class="original-price">$45.50</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="product-card"
+            data-product='{"id": 3, "title": "BlackPink K-Pop Guide", "price": 67.50, "originalPrice": 267.50, "category": "english", "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=400&fit=crop"}'
+          >
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=400&fit=crop"
+                alt="BlackPink K-Pop Guide"
+              />
+              <div class="discount-badge">-75%</div>
+              <div class="product-actions">
+                <button class="action-btn heart" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="action-btn cart" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="action-btn share" onclick="shareProduct(this)">
+                  <i class="fas fa-share"></i>
+                </button>
+              </div>
+              <div class="quick-view" onclick="quickView(this)">
+                <i class="fas fa-eye"></i>
+                Quick View
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">BlackPink K-Pop Guide</h3>
+              <p class="product-author">by Music Expert</p>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(3.5)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$67.50</span>
+                <span class="original-price">$267.50</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="product-card"
+            data-product='{"id": 4, "title": "Fall Of The School", "price": 31.20, "originalPrice": 50.00, "category": "english", "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop"}'
+          >
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop"
+                alt="Fall Of The School"
+              />
+              <div class="discount-badge">-38%</div>
+              <div class="product-actions">
+                <button class="action-btn heart" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="action-btn cart" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="action-btn share" onclick="shareProduct(this)">
+                  <i class="fas fa-share"></i>
+                </button>
+              </div>
+              <div class="quick-view" onclick="quickView(this)">
+                <i class="fas fa-eye"></i>
+                Quick View
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Fall Of The School</h3>
+              <p class="product-author">by Drama Writer</p>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.1)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$31.20</span>
+                <span class="original-price">$50.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chinese Books Section -->
+      <section class="products-section" id="chinese-book">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-yin-yang"></i>
+            Chinese Books
+          </h2>
+          <div class="section-actions">
+            <button class="load-more-btn" onclick="loadMoreBooks('chinese')">
+              Load More
+            </button>
           </div>
         </div>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <div class="products-grid" data-category="chinese">
+          <!-- Similar structure for Chinese books -->
+          <div
+            class="product-card"
+            data-product='{"id": 5, "title": "古典文学精选", "price": 25.99, "originalPrice": 35.99, "category": "chinese", "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop"}'
+          >
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop"
+                alt="古典文学精选"
+              />
+              <div class="discount-badge">-28%</div>
+              <div class="product-actions">
+                <button class="action-btn heart" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <button class="action-btn cart" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="action-btn share" onclick="shareProduct(this)">
+                  <i class="fas fa-share"></i>
+                </button>
+              </div>
+              <div class="quick-view" onclick="quickView(this)">
+                <i class="fas fa-eye"></i>
+                Quick View
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">古典文学精选</h3>
+              <p class="product-author">经典作品集</p>
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(4.9)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$25.99</span>
+                <span class="original-price">$35.99</span>
+              </div>
             </div>
           </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
+          <!-- Add more Chinese books here -->
+        </div>
+      </section>
+
+      <!-- Fiction Books Section -->
+      <section class="products-section" id="fiction-book">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-dragon"></i>
+            Fiction Books
+          </h2>
+          <div class="section-actions">
+            <button class="load-more-btn" onclick="loadMoreBooks('fiction')">
+              Load More
+            </button>
           </div>
         </div>
 
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
+        <div class="products-grid" data-category="fiction">
+          <!-- Fiction books will be loaded here -->
+        </div>
+      </section>
+
+      <!-- Business Books Section -->
+      <section class="products-section" id="business-book">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-briefcase"></i>
+            Business Books
+          </h2>
+          <div class="section-actions">
+            <button class="load-more-btn" onclick="loadMoreBooks('business')">
+              Load More
+            </button>
           </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
+        </div>
+
+        <div class="products-grid" data-category="business">
+          <!-- Business books will be loaded here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Enhanced Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3 class="cart-title">Shopping Cart</h3>
+        <button class="close-cart" onclick="toggleCart()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Your cart is empty</p>
         </div>
       </div>
-    </section>
 
-    <section class="products" id="bbook">
-      <h1 class="heading">BUSINESS BOOK</h1>
+      <div class="cart-footer">
+        <button class="checkout-btn" onclick="checkout()">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
 
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
-        </div>
-
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeQuickView()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="quick-view-content">
+          <!-- Quick view content will be loaded here -->
         </div>
       </div>
-    </section>
-    <!-- book -->
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+      <div class="spinner"></div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="ourbook.js"></script>
   </body>
 </html>
