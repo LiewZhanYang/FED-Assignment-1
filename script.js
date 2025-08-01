@@ -486,6 +486,19 @@ function initializeKeyboardNavigation() {
   });
 }
 
+function goToBooks() {
+  // Try multiple possible paths
+  const possiblePaths = [
+    "ourbook.html",
+    "ourbook/ourbook.html",
+    "./ourbook/ourbook.html",
+    "../ourbook/ourbook.html",
+  ];
+
+  // Try each path until one works
+  window.location.href = "ourbook/ourbook.html";
+}
+
 // Performance Optimization - Lazy Loading Images
 function initializeLazyLoading() {
   const imageObserver = new IntersectionObserver((entries, observer) => {
