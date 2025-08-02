@@ -3,33 +3,674 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <script>
-      window.addEventListener("load", (event) => {
-        currentSlide(1);
-      });
-    </script>
+    <title>Privacy Policy - Popular Online</title>
+    <link rel="stylesheet" href="privacy-style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <section class="privacy">
-      <div class="upp">
-        <a href="index.html"><i class="ri-arrow-left-circle-line"></i></a>
-        <h1>POPULAR <span>ONLINE</span> | PRIVACY POLICY</h1>
+    <!-- Animated background particles -->
+    <div class="bg-animation">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="back-btn">
+          <i class="ri-arrow-left-circle-line"></i>
+          <span>Back to Home</span>
+        </a>
+        <h1 class="page-title">
+          <i class="fas fa-shield-alt"></i>
+          POPULAR <span>PRIVACY</span>
+        </h1>
+        <div class="header-actions">
+          <button class="action-btn" id="printBtn">
+            <i class="fas fa-print"></i>
+            <span>Print</span>
+          </button>
+          <button class="action-btn" id="shareBtn">
+            <i class="fas fa-share"></i>
+            <span>Share</span>
+          </button>
+        </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <img src="image/privacy.png" alt="privacy" />
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h2 class="hero-title">Your Privacy Matters</h2>
+          <p class="hero-subtitle">
+            We are committed to protecting your personal information and being
+            transparent about how we collect, use, and share your data.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <i class="fas fa-lock"></i>
+              <span>256-bit Encryption</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-certificate"></i>
+              <span>GDPR Compliant</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-shield-check"></i>
+              <span>Secure by Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Table of Contents -->
+    <section class="toc-section">
+      <div class="container">
+        <div class="toc-card">
+          <h3>Table of Contents</h3>
+          <div class="toc-grid">
+            <a href="#information-collection" class="toc-item">
+              <i class="fas fa-database"></i>
+              <span>Information We Collect</span>
+            </a>
+            <a href="#data-usage" class="toc-item">
+              <i class="fas fa-cogs"></i>
+              <span>How We Use Your Data</span>
+            </a>
+            <a href="#data-sharing" class="toc-item">
+              <i class="fas fa-share-nodes"></i>
+              <span>Information Sharing</span>
+            </a>
+            <a href="#data-security" class="toc-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Data Security</span>
+            </a>
+            <a href="#user-rights" class="toc-item">
+              <i class="fas fa-user-check"></i>
+              <span>Your Rights</span>
+            </a>
+            <a href="#cookies" class="toc-item">
+              <i class="fas fa-cookie-bite"></i>
+              <span>Cookies & Tracking</span>
+            </a>
+            <a href="#contact" class="toc-item">
+              <i class="fas fa-envelope"></i>
+              <span>Contact Us</span>
+            </a>
+            <a href="#updates" class="toc-item">
+              <i class="fas fa-sync-alt"></i>
+              <span>Policy Updates</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <section class="content-section">
+      <div class="container">
+        <div class="content-layout">
+          <!-- Sidebar Navigation -->
+          <aside class="sidebar">
+            <div class="sidebar-sticky">
+              <h4>Quick Navigation</h4>
+              <nav class="sidebar-nav">
+                <a href="#information-collection" class="nav-link"
+                  >Information Collection</a
+                >
+                <a href="#data-usage" class="nav-link">Data Usage</a>
+                <a href="#data-sharing" class="nav-link">Information Sharing</a>
+                <a href="#data-security" class="nav-link">Data Security</a>
+                <a href="#user-rights" class="nav-link">Your Rights</a>
+                <a href="#cookies" class="nav-link">Cookies & Tracking</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+                <a href="#updates" class="nav-link">Policy Updates</a>
+              </nav>
+
+              <div class="last-updated">
+                <h5>Last Updated</h5>
+                <p>January 15, 2025</p>
+              </div>
+
+              <div class="contact-card">
+                <h5>Questions?</h5>
+                <p>Contact our privacy team</p>
+                <a href="mailto:privacy@popularonline.com" class="contact-link">
+                  <i class="fas fa-envelope"></i>
+                  privacy@popularonline.com
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="main-content">
+            <!-- Introduction -->
+            <div class="content-card intro-card">
+              <h2>Introduction</h2>
+              <p class="lead">
+                Popular Online ("we," "our," or "us") is committed to protecting
+                and respecting your privacy. This Privacy Policy explains how we
+                collect, use, disclose, and safeguard your information when you
+                visit our website, mobile application, or use our services.
+              </p>
+              <div class="effective-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Effective Date: January 15, 2025</span>
+              </div>
+            </div>
+
+            <!-- Information We Collect -->
+            <div class="content-card" id="information-collection">
+              <h2>Information We Collect</h2>
+
+              <h3>Personal Information</h3>
+              <p>
+                We may collect personally identifiable information that you
+                voluntarily provide to us when you:
+              </p>
+              <ul class="styled-list">
+                <li>Create an account on our platform</li>
+                <li>Make a purchase or transaction</li>
+                <li>Subscribe to our newsletter</li>
+                <li>Contact us for customer support</li>
+                <li>Participate in surveys or promotions</li>
+              </ul>
+
+              <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                  <h4>Types of Personal Information</h4>
+                  <p>
+                    This may include your name, email address, phone number,
+                    shipping address, payment information, and preferences.
+                  </p>
+                </div>
+              </div>
+
+              <h3>Automatically Collected Information</h3>
+              <p>
+                When you visit our website or use our services, we may
+                automatically collect certain information about your device and
+                usage patterns:
+              </p>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-laptop"></i>
+                  <h4>Device Information</h4>
+                  <p>
+                    IP address, browser type, operating system, device
+                    identifiers
+                  </p>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <h4>Usage Analytics</h4>
+                  <p>
+                    Pages visited, time spent, click patterns, referral sources
+                  </p>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <h4>Location Data</h4>
+                  <p>General geographic location based on IP address</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- How We Use Your Data -->
+            <div class="content-card" id="data-usage">
+              <h2>How We Use Your Data</h2>
+              <p>
+                We use the information we collect for various purposes,
+                including:
+              </p>
+
+              <div class="usage-grid">
+                <div class="usage-item">
+                  <div class="usage-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                  </div>
+                  <h3>Service Delivery</h3>
+                  <p>
+                    To process transactions, fulfill orders, and provide
+                    customer support
+                  </p>
+                </div>
+                <div class="usage-item">
+                  <div class="usage-icon">
+                    <i class="fas fa-user-cog"></i>
+                  </div>
+                  <h3>Account Management</h3>
+                  <p>
+                    To create and manage your account, authenticate users, and
+                    personalize experience
+                  </p>
+                </div>
+                <div class="usage-item">
+                  <div class="usage-icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                  </div>
+                  <h3>Communications</h3>
+                  <p>
+                    To send important updates, newsletters, and promotional
+                    materials (with consent)
+                  </p>
+                </div>
+                <div class="usage-item">
+                  <div class="usage-icon">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                  <h3>Analytics & Improvement</h3>
+                  <p>
+                    To analyze usage patterns and improve our services and user
+                    experience
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Information Sharing -->
+            <div class="content-card" id="data-sharing">
+              <h2>Information Sharing</h2>
+              <p>
+                We do not sell, trade, or otherwise transfer your personal
+                information to third parties without your consent, except in the
+                following circumstances:
+              </p>
+
+              <div class="sharing-list">
+                <div class="sharing-item">
+                  <i class="fas fa-handshake"></i>
+                  <div>
+                    <h3>Service Providers</h3>
+                    <p>
+                      We may share information with trusted third-party service
+                      providers who assist us in operating our website,
+                      conducting business, or serving our users.
+                    </p>
+                  </div>
+                </div>
+                <div class="sharing-item">
+                  <i class="fas fa-balance-scale"></i>
+                  <div>
+                    <h3>Legal Requirements</h3>
+                    <p>
+                      We may disclose information when required by law, court
+                      order, or government request, or to protect our rights and
+                      safety.
+                    </p>
+                  </div>
+                </div>
+                <div class="sharing-item">
+                  <i class="fas fa-building"></i>
+                  <div>
+                    <h3>Business Transfers</h3>
+                    <p>
+                      In the event of a merger, acquisition, or sale of assets,
+                      user information may be transferred as part of the
+                      transaction.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Security -->
+            <div class="content-card" id="data-security">
+              <h2>Data Security</h2>
+              <p>
+                We implement appropriate technical and organizational measures
+                to protect your personal information:
+              </p>
+
+              <div class="security-grid">
+                <div class="security-item">
+                  <i class="fas fa-shield-virus"></i>
+                  <h3>Encryption</h3>
+                  <p>
+                    All sensitive data is encrypted using industry-standard
+                    SSL/TLS protocols
+                  </p>
+                </div>
+                <div class="security-item">
+                  <i class="fas fa-server"></i>
+                  <h3>Secure Storage</h3>
+                  <p>
+                    Data is stored on secure servers with restricted access and
+                    regular backups
+                  </p>
+                </div>
+                <div class="security-item">
+                  <i class="fas fa-user-lock"></i>
+                  <h3>Access Control</h3>
+                  <p>
+                    Strict access controls ensure only authorized personnel can
+                    access your data
+                  </p>
+                </div>
+                <div class="security-item">
+                  <i class="fas fa-search"></i>
+                  <h3>Regular Audits</h3>
+                  <p>
+                    We conduct regular security audits and vulnerability
+                    assessments
+                  </p>
+                </div>
+              </div>
+
+              <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                  <h4>Important Notice</h4>
+                  <p>
+                    While we strive to protect your information, no method of
+                    transmission over the internet or electronic storage is 100%
+                    secure. We cannot guarantee absolute security.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Your Rights -->
+            <div class="content-card" id="user-rights">
+              <h2>Your Rights</h2>
+              <p>
+                Depending on your location, you may have the following rights
+                regarding your personal information:
+              </p>
+
+              <div class="rights-accordion">
+                <div class="accordion-item">
+                  <button class="accordion-header">
+                    <i class="fas fa-eye"></i>
+                    <span>Right to Access</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      You have the right to request access to the personal
+                      information we hold about you and receive a copy of that
+                      information.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-header">
+                    <i class="fas fa-edit"></i>
+                    <span>Right to Rectification</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      You can request that we correct any inaccurate or
+                      incomplete personal information we have about you.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-header">
+                    <i class="fas fa-trash"></i>
+                    <span>Right to Erasure</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      Under certain circumstances, you can request that we
+                      delete your personal information from our systems.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <button class="accordion-header">
+                    <i class="fas fa-download"></i>
+                    <span>Right to Data Portability</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      You have the right to receive your personal information in
+                      a structured, machine-readable format and transfer it to
+                      another service provider.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cookies & Tracking -->
+            <div class="content-card" id="cookies">
+              <h2>Cookies & Tracking Technologies</h2>
+              <p>
+                We use cookies and similar tracking technologies to enhance your
+                browsing experience:
+              </p>
+
+              <div class="cookies-table">
+                <div class="table-header">
+                  <div class="col">Cookie Type</div>
+                  <div class="col">Purpose</div>
+                  <div class="col">Duration</div>
+                </div>
+                <div class="table-row">
+                  <div class="col">
+                    <strong>Essential</strong>
+                    <span class="cookie-badge required">Required</span>
+                  </div>
+                  <div class="col">Website functionality and security</div>
+                  <div class="col">Session/1 year</div>
+                </div>
+                <div class="table-row">
+                  <div class="col">
+                    <strong>Analytics</strong>
+                    <span class="cookie-badge optional">Optional</span>
+                  </div>
+                  <div class="col">
+                    Usage statistics and performance monitoring
+                  </div>
+                  <div class="col">2 years</div>
+                </div>
+                <div class="table-row">
+                  <div class="col">
+                    <strong>Marketing</strong>
+                    <span class="cookie-badge optional">Optional</span>
+                  </div>
+                  <div class="col">Personalized advertising and content</div>
+                  <div class="col">1 year</div>
+                </div>
+              </div>
+
+              <div class="cookie-controls">
+                <h3>Cookie Preferences</h3>
+                <p>You can manage your cookie preferences at any time:</p>
+                <button class="cookie-btn" id="manageCookies">
+                  <i class="fas fa-cog"></i>
+                  Manage Cookie Settings
+                </button>
+              </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="content-card" id="contact">
+              <h2>Contact Us</h2>
+              <p>
+                If you have any questions about this Privacy Policy or our
+                privacy practices, please contact us:
+              </p>
+
+              <div class="contact-grid">
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <h4>Email</h4>
+                    <a href="mailto:privacy@popularonline.com"
+                      >privacy@popularonline.com</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <h4>Phone</h4>
+                    <a href="tel:+60712345678">+60 7-123 4567</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    <h4>Address</h4>
+                    <p>
+                      123 Business Street<br />Johor Bahru, Johor 80000<br />Malaysia
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Policy Updates -->
+            <div class="content-card" id="updates">
+              <h2>Policy Updates</h2>
+              <p>
+                We may update this Privacy Policy from time to time. When we do,
+                we will:
+              </p>
+
+              <ul class="update-list">
+                <li>Post the revised policy on this page</li>
+                <li>Update the "Last Modified" date</li>
+                <li>
+                  Notify users of significant changes via email or website
+                  notification
+                </li>
+                <li>Maintain previous versions for reference</li>
+              </ul>
+
+              <div class="update-subscription">
+                <h3>Stay Informed</h3>
+                <p>
+                  Subscribe to receive notifications about privacy policy
+                  updates:
+                </p>
+                <form class="subscription-form" id="privacyUpdatesForm">
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                  <button type="submit">
+                    <i class="fas fa-bell"></i>
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-content">
+        <div class="cookie-info">
+          <i class="fas fa-cookie-bite"></i>
+          <div>
+            <h4>We use cookies</h4>
+            <p>
+              We use cookies to enhance your browsing experience and analyze our
+              traffic. By continuing to use our site, you agree to our cookie
+              policy.
+            </p>
+          </div>
+        </div>
+        <div class="cookie-actions">
+          <button class="cookie-btn secondary" id="cookieSettings">
+            Settings
+          </button>
+          <button class="cookie-btn primary" id="acceptCookies">
+            Accept All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="modal-overlay" id="cookieModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Cookie Settings</h3>
+          <button class="modal-close" onclick="closeCookieModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-content">
+          <p>Choose which cookies you want to allow:</p>
+          <div class="cookie-options">
+            <div class="cookie-option">
+              <label class="toggle-switch">
+                <input type="checkbox" checked disabled />
+                <span class="slider"></span>
+              </label>
+              <div class="option-info">
+                <h4>Essential Cookies</h4>
+                <p>Required for website functionality</p>
+              </div>
+            </div>
+            <div class="cookie-option">
+              <label class="toggle-switch">
+                <input type="checkbox" id="analyticsToggle" />
+                <span class="slider"></span>
+              </label>
+              <div class="option-info">
+                <h4>Analytics Cookies</h4>
+                <p>Help us improve our website</p>
+              </div>
+            </div>
+            <div class="cookie-option">
+              <label class="toggle-switch">
+                <input type="checkbox" id="marketingToggle" />
+                <span class="slider"></span>
+              </label>
+              <div class="option-info">
+                <h4>Marketing Cookies</h4>
+                <p>Personalized ads and content</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-secondary" onclick="closeCookieModal()">
+              Cancel
+            </button>
+            <button class="btn-primary" onclick="saveCookieSettings()">
+              Save Settings
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="privacy-script.js"></script>
   </body>
 </html>
