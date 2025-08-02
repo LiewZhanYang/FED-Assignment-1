@@ -3,66 +3,524 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="account.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <script src="login.js"></script>
+    <title>Create Account - Popular Online</title>
+    <link rel="stylesheet" href="account.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <body>
-      <h1>SignUp Form</h1>
-      <form id="myForm">
-        <label for="full-name">Full Name:</label>
-        <input type="text" id="full-name" name="full-name" required />
+    <!-- Animated background particles -->
+    <div class="bg-animation">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
 
-        <label for="email">Email Address:</label>
-        <input type="email" name="email" id="email" required />
-
-        <label for="birth-date">Date Of Birth:</label>
-        <input type="date" name="birth-date" id="birth-date" required />
-
-        <div class="form-section">
-          <p>Gender:</p>
-          <input type="radio" name="gender" id="male" />
-          <label for="male">Male</label>
-
-          <input type="radio" name="gender" id="female" />
-          <label for="female">Female</label>
-
-          <input type="radio" name="gender" id="other" />
-          <label for="other">Other</label>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="back-btn">
+          <i class="ri-arrow-left-circle-line"></i>
+          <span>Back to Home</span>
+        </a>
+        <div class="logo">
+          <i class="fas fa-user-plus"></i>
+          <span>Popular <strong>Online</strong></span>
         </div>
-
-        <div class="form-section">
-          <p>Interests</p>
-          <input type="checkbox" name="Interests" id="music" />
-          <label for="music">Music</label>
-
-          <input type="checkbox" name="Interests" id="sports" />
-          <label for="sports">Sports</label>
-
-          <input type="checkbox" name="Interests" id="movies" />
-          <label for="movies">Movies</label>
-
-          <input type="checkbox" name="Interests" id="travel" />
-          <label for="travel">Travel</label>
+        <div class="header-actions">
+          <a href="login.html" class="login-link">
+            <i class="fas fa-sign-in-alt"></i>
+            <span>Sign In</span>
+          </a>
         </div>
-        <label for="comments">Comments</label>
-        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+      </div>
+    </header>
 
-        <input type="submit" id="submitButton" value="Submit" />
-      </form>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-content">
+            <div class="hero-icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <h1 class="hero-title">Create Your Account</h1>
+            <p class="hero-subtitle">
+              Join our community of book lovers and unlock exclusive features,
+              personalized recommendations, and much more!
+            </p>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Personalized book recommendations</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Exclusive member discounts</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Early access to new releases</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <a href="index.html">Back And Leave</a>
-      <script src="login.js"></script>
-    </body>
+        <!-- Form Section -->
+        <section class="form-section">
+          <div class="form-container">
+            <div class="form-header">
+              <h2>Sign Up</h2>
+              <p>Create your account in just a few steps</p>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+              <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <span>Personal Info</span>
+              </div>
+              <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <span>Preferences</span>
+              </div>
+              <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <span>Complete</span>
+              </div>
+            </div>
+
+            <form id="signupForm" class="signup-form">
+              <!-- Step 1: Personal Information -->
+              <div class="form-step active" id="step1">
+                <h3>Personal Information</h3>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                    />
+                    <label for="firstName">First Name</label>
+                    <div class="input-border"></div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="lastName" name="lastName" required />
+                    <label for="lastName">Last Name</label>
+                    <div class="input-border"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="email" id="email" name="email" required />
+                  <label for="email">Email Address</label>
+                  <div class="input-border"></div>
+                  <div class="form-hint">
+                    We'll never share your email with anyone else
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                    />
+                    <label for="password">Password</label>
+                    <div class="input-border"></div>
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('password')"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      required
+                    />
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-border"></div>
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      onclick="togglePassword('confirmPassword')"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="password-strength" id="passwordStrength">
+                  <div class="strength-bar">
+                    <div class="strength-fill"></div>
+                  </div>
+                  <span class="strength-text">Password strength</span>
+                </div>
+
+                <div class="form-group">
+                  <input type="date" id="birthDate" name="birthDate" required />
+                  <label for="birthDate">Date of Birth</label>
+                  <div class="input-border"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="section-label">Gender</label>
+                  <div class="radio-group">
+                    <label class="radio-option">
+                      <input type="radio" name="gender" value="male" />
+                      <span class="radio-custom"></span>
+                      <span class="radio-text">Male</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="gender" value="female" />
+                      <span class="radio-custom"></span>
+                      <span class="radio-text">Female</span>
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="gender" value="other" />
+                      <span class="radio-custom"></span>
+                      <span class="radio-text">Other</span>
+                    </label>
+                    <label class="radio-option">
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="prefer-not-to-say"
+                      />
+                      <span class="radio-custom"></span>
+                      <span class="radio-text">Prefer not to say</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn-next" onclick="nextStep()">
+                    <span>Continue</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Preferences -->
+              <div class="form-step" id="step2">
+                <h3>Your Preferences</h3>
+                <p class="step-description">
+                  Help us personalize your experience
+                </p>
+
+                <div class="form-group">
+                  <label class="section-label">Favorite Genres</label>
+                  <div class="checkbox-grid">
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="fiction" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-book"></i>
+                        Fiction
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input
+                        type="checkbox"
+                        name="genres"
+                        value="non-fiction"
+                      />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-newspaper"></i>
+                        Non-Fiction
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="mystery" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-search"></i>
+                        Mystery
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="romance" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-heart"></i>
+                        Romance
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="sci-fi" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-rocket"></i>
+                        Sci-Fi
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="biography" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-user"></i>
+                        Biography
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="genres" value="self-help" />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-lightbulb"></i>
+                        Self-Help
+                      </span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input
+                        type="checkbox"
+                        name="genres"
+                        value="educational"
+                      />
+                      <span class="checkbox-custom">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="checkbox-text">
+                        <i class="fas fa-graduation-cap"></i>
+                        Educational
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="section-label">Reading Frequency</label>
+                  <select
+                    id="readingFrequency"
+                    name="readingFrequency"
+                    required
+                  >
+                    <option value="">Select your reading frequency</option>
+                    <option value="daily">Daily reader</option>
+                    <option value="weekly">Several times a week</option>
+                    <option value="monthly">Once a month</option>
+                    <option value="occasionally">Occasionally</option>
+                  </select>
+                  <div class="input-border"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="section-label">Notification Preferences</label>
+                  <div class="notification-options">
+                    <label class="switch-option">
+                      <span class="switch-label"
+                        >Email notifications for new releases</span
+                      >
+                      <label class="switch">
+                        <input
+                          type="checkbox"
+                          name="emailNotifications"
+                          checked
+                        />
+                        <span class="switch-slider"></span>
+                      </label>
+                    </label>
+                    <label class="switch-option">
+                      <span class="switch-label"
+                        >SMS notifications for order updates</span
+                      >
+                      <label class="switch">
+                        <input type="checkbox" name="smsNotifications" />
+                        <span class="switch-slider"></span>
+                      </label>
+                    </label>
+                    <label class="switch-option">
+                      <span class="switch-label"
+                        >Weekly newsletter with recommendations</span
+                      >
+                      <label class="switch">
+                        <input type="checkbox" name="newsletter" checked />
+                        <span class="switch-slider"></span>
+                      </label>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <textarea
+                    id="comments"
+                    name="comments"
+                    rows="4"
+                    placeholder=" "
+                  ></textarea>
+                  <label for="comments">Additional Comments (Optional)</label>
+                  <div class="input-border"></div>
+                  <div class="form-hint">
+                    Tell us anything else you'd like us to know
+                  </div>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn-back" onclick="prevStep()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                  </button>
+                  <button type="button" class="btn-next" onclick="nextStep()">
+                    <span>Review</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Review and Submit -->
+              <div class="form-step" id="step3">
+                <h3>Review Your Information</h3>
+                <p class="step-description">
+                  Please review your details before creating your account
+                </p>
+
+                <div class="review-section">
+                  <div class="review-card">
+                    <h4><i class="fas fa-user"></i> Personal Information</h4>
+                    <div class="review-content" id="reviewPersonal">
+                      <!-- Will be populated by JavaScript -->
+                    </div>
+                    <button
+                      type="button"
+                      class="edit-btn"
+                      onclick="goToStep(1)"
+                    >
+                      <i class="fas fa-edit"></i> Edit
+                    </button>
+                  </div>
+
+                  <div class="review-card">
+                    <h4><i class="fas fa-heart"></i> Preferences</h4>
+                    <div class="review-content" id="reviewPreferences">
+                      <!-- Will be populated by JavaScript -->
+                    </div>
+                    <button
+                      type="button"
+                      class="edit-btn"
+                      onclick="goToStep(2)"
+                    >
+                      <i class="fas fa-edit"></i> Edit
+                    </button>
+                  </div>
+                </div>
+
+                <div class="terms-section">
+                  <label class="checkbox-option terms-checkbox">
+                    <input type="checkbox" name="terms" required />
+                    <span class="checkbox-custom">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="checkbox-text">
+                      I agree to the
+                      <a href="privacy/privacy.html" target="_blank"
+                        >Terms of Service</a
+                      >
+                      and
+                      <a href="privacy/privacy.html" target="_blank"
+                        >Privacy Policy</a
+                      >
+                    </span>
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="marketing" />
+                    <span class="checkbox-custom">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="checkbox-text">
+                      I would like to receive marketing communications
+                      (optional)
+                    </span>
+                  </label>
+                </div>
+
+                <div class="step-actions">
+                  <button type="button" class="btn-back" onclick="prevStep()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                  </button>
+                  <button type="submit" class="btn-submit">
+                    <span>Create Account</span>
+                    <i class="fas fa-user-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="success-animation">
+            <div class="success-icon">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+          <h3>Welcome to Popular Online!</h3>
+          <p>
+            Your account has been created successfully. We've sent a
+            verification email to your inbox.
+          </p>
+          <div class="modal-actions">
+            <button class="btn-primary" onclick="closeModal()">
+              Get Started
+            </button>
+            <button class="btn-secondary" onclick="goToLogin()">
+              Sign In Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <h3>Creating Your Account</h3>
+        <p>Please wait while we set up your profile...</p>
+      </div>
+    </div>
+
+    <script src="account.js"></script>
   </body>
 </html>
