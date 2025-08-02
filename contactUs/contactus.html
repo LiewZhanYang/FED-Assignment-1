@@ -3,33 +3,219 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <script>
-      window.addEventListener("load", (event) => {
-        currentSlide(1);
-      });
-    </script>
+    <title>Contact Us - Popular Online</title>
+    <link rel="stylesheet" href="contact-style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <section class="privacy">
-      <div class="upp">
-        <a href="index.html"><i class="ri-arrow-left-circle-line"></i></a>
-        <h1>POPULAR <span>ONLINE</span> | CONTACT US</h1>
+    <!-- Animated background particles -->
+    <div class="bg-animation">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="back-btn">
+          <i class="ri-arrow-left-circle-line"></i>
+          <span>Back to Home</span>
+        </a>
+        <h1 class="page-title">POPULAR <span>ONLINE</span></h1>
       </div>
-      <br />
-      <br />
-      <br />
-      <img src="image/contact us.png" alt="contactus" />
-    </section>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-content">
+            <h2 class="hero-title">Get In Touch</h2>
+            <p class="hero-subtitle">
+              We'd love to hear from you. Send us a message and we'll respond as
+              soon as possible.
+            </p>
+          </div>
+          <div class="hero-image">
+            <div class="image-container">
+              <i class="fas fa-comments"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+              <div class="glass-card">
+                <h3>Send us a Message</h3>
+                <form class="contact-form" id="contactForm">
+                  <div class="form-group">
+                    <input type="text" id="name" name="name" required />
+                    <label for="name">Full Name</label>
+                    <div class="input-border"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" id="email" name="email" required />
+                    <label for="email">Email Address</label>
+                    <div class="input-border"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="tel" id="phone" name="phone" />
+                    <label for="phone">Phone Number</label>
+                    <div class="input-border"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <select id="subject" name="subject" required>
+                      <option value="">Select Subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="support">Technical Support</option>
+                      <option value="business">Business Partnership</option>
+                      <option value="feedback">Feedback</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <div class="input-border"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      required
+                    ></textarea>
+                    <label for="message">Your Message</label>
+                    <div class="input-border"></div>
+                  </div>
+
+                  <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-container">
+              <div class="glass-card">
+                <h3>Contact Information</h3>
+                <div class="contact-info">
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                      <h4>Address</h4>
+                      <p>
+                        123 Business Street<br />Johor Bahru, Johor 80000<br />Malaysia
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                      <h4>Phone</h4>
+                      <p>+60 7-123 4567</p>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                      <h4>Email</h4>
+                      <p>hello@popularonline.com</p>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                      <h4>Business Hours</h4>
+                      <p>
+                        Mon - Fri: 9:00 AM - 6:00 PM<br />Sat: 9:00 AM - 2:00 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="social-media">
+                  <h4>Follow Us</h4>
+                  <div class="social-links">
+                    <a href="#" class="social-link"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a href="#" class="social-link"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a href="#" class="social-link"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a href="#" class="social-link"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+          <div class="glass-card">
+            <h3>Find Us</h3>
+            <div class="map-container">
+              <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Interactive Map</p>
+                <small>Replace with actual map embed</small>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="modal">
+        <div class="modal-content">
+          <i class="fas fa-check-circle"></i>
+          <h3>Message Sent!</h3>
+          <p>Thank you for contacting us. We'll get back to you soon.</p>
+          <button class="modal-btn" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="contact-script.js"></script>
   </body>
 </html>
