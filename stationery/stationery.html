@@ -1,353 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <link href="ourbook.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
-  </head>
-  <body>
-    <!-- header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery - Popular Online Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="stationery.css">
+</head>
+<body>
+    <!-- Enhanced Header -->
     <header>
-      <img src="image/logopic.png" alt="logopic" class="logopic" />
-
-      <a href="#" class="logo">POPULAR ONLINE </a>
-
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="ourbook.html">Our Book</a>
-        <a href="stationery.html">Stationery</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="news&events.html">Review</a>
-      </nav>
-
-      <a href="account.html"> <i class="ri-user-line"></i></a>
+        <div class="logo-container">
+            <div class="logo-pic">PO</div>
+            <a href="../index.html" class="logo">POPULAR ONLINE</a>
+        </div>
+        
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../ourbook/ourbook.html">Our Books</a>
+            <a href="stationery.html" class="active">Stationery</a>
+            <a href="../promotion.html">Promotion</a>
+            <a href="../reviews.html">Reviews</a>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="search-toggle" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
     </header>
-    <!-- header -->
 
-    <!-- besidebar -->
+    <!-- Enhanced Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search stationery items..." id="searchInput">
+            <button class="search-close" onclick="toggleSearch()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
 
-    <section class="bar">
-      <h1>CATEGOTY</h1>
-      <a href="#wri">WRITING</a>
-      <a href="#pap">PAPER</a>
-      <a href="#anc">ART&CRAFT</a>
-      <a href="#oth">OTHERS</a>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Premium Stationery Collection</h1>
+                <p>Discover high-quality writing tools, paper products, and creative supplies for all your needs</p>
+                <button class="hero-btn" onclick="scrollToProducts()">
+                    <i class="fas fa-pencil-alt"></i>
+                    Explore Collection
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="floating-item item-1">✏️</div>
+                <div class="floating-item item-2">📝</div>
+                <div class="floating-item item-3">🖊️</div>
+                <div class="floating-item item-4">📋</div>
+                <div class="floating-item item-5">🎨</div>
+            </div>
+        </div>
     </section>
 
-    <div class="vertical-line"></div>
+    <!-- Enhanced Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>
+                <i class="fas fa-layer-group"></i>
+                Categories
+            </h2>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="category-nav">
+            <a href="#writing" class="category-link active" data-category="writing">
+                <div class="category-icon">
+                    <i class="fas fa-pen"></i>
+                </div>
+                <div class="category-info">
+                    <span class="category-name">Writing Tools</span>
+                    <span class="category-desc">Pens, Pencils & Markers</span>
+                </div>
+                <span class="category-count">24</span>
+            </a>
+            
+            <a href="#paper" class="category-link" data-category="paper">
+                <div class="category-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="category-info">
+                    <span class="category-name">Paper Products</span>
+                    <span class="category-desc">Notebooks & Papers</span>
+                </div>
+                <span class="category-count">18</span>
+            </a>
+            
+            <a href="#artcraft" class="category-link" data-category="artcraft">
+                <div class="category-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="category-info">
+                    <span class="category-name">Art & Craft</span>
+                    <span class="category-desc">Creative Supplies</span>
+                </div>
+                <span class="category-count">32</span>
+            </a>
+            
+            <a href="#office" class="category-link" data-category="office">
+                <div class="category-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="category-info">
+                    <span class="category-name">Office Supplies</span>
+                    <span class="category-desc">Organization & Tools</span>
+                </div>
+                <span class="category-count">15</span>
+            </a>
+        </nav>
 
-    <!-- besidebar -->
-
-    <!-- stationery -->
-    <section class="products" id="wri">
-      <h1 class="heading">WRITING</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>
+                <i class="fas fa-filter"></i>
+                Filters
+            </h3>
+            
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-filter">
+                    <input type="range" min="0" max="100" value="100" class="price-slider" id="priceRange">
+                    <div class="price-display">
+                        <span>$0</span>
+                        <span id="maxPrice">$100</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
+
+            <div class="filter-group">
+                <h4>Brand</h4>
+                <div class="brand-filters">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="pilot">
+                        <span class="checkmark"></span>
+                        Pilot
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="faber-castell">
+                        <span class="checkmark"></span>
+                        Faber-Castell
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="moleskine">
+                        <span class="checkmark"></span>
+                        Moleskine
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="stabilo">
+                        <span class="checkmark"></span>
+                        Stabilo
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Sort By</h4>
+                <select class="sort-select" id="sortSelect">
+                    <option value="default">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Stationery</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="header-left">
+                <h1>Stationery Collection</h1>
+                <p>Premium quality stationery for work, study, and creativity</p>
+            </div>
+            <div class="header-right">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" onclick="toggleView('grid')">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" onclick="toggleView('list')">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+                <div class="results-count">
+                    <span id="resultsCount">89 items</span>
+                </div>
+            </div>
         </div>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <!-- Writing Tools Section -->
+        <section class="products-section" id="writing">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-pen"></i>
+                    Writing Tools
+                </h2>
+                <button class="section-expand" onclick="toggleSection('writing')">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+            <div class="products-grid" data-category="writing">
+                <!-- Premium Fountain Pen -->
+                <div class="product-card" data-product='{"id": 101, "title": "Premium Fountain Pen", "price": 45.99, "originalPrice": 59.99, "category": "writing", "brand": "pilot", "rating": 4.8, "image": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&h=300&fit=crop"}'>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&h=300&fit=crop" alt="Premium Fountain Pen">
+                        <div class="discount-badge">-23%</div>
+                        <div class="product-labels">
+                            <span class="label bestseller">Bestseller</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn heart" onclick="toggleWishlist(this)">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="action-btn cart" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                            <button class="action-btn share" onclick="shareProduct(this)">
+                                <i class="fas fa-share"></i>
+                            </button>
+                        </div>
+                        <div class="quick-view" onclick="quickView(this)">
+                            <i class="fas fa-eye"></i>
+                            Quick View
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Pilot</div>
+                        <h3 class="product-title">Premium Fountain Pen</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-text">(4.6) 134 reviews</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">$42.99</span>
+                            <span class="original-price">$52.99</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
+        </section>
 
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        <!-- Load More Section -->
+        <div class="load-more-section">
+            <button class="load-more-btn" onclick="loadMoreProducts()">
+                <i class="fas fa-plus"></i>
+                Load More Products
+            </button>
+        </div>
+    </main>
+
+    <!-- Enhanced Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">
+                <i class="fas fa-shopping-cart"></i>
+                Shopping Cart
+            </h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+                <button class="continue-shopping" onclick="toggleCart()">
+                    Continue Shopping
+                </button>
             </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="products" id="pap">
-      <h1 class="heading">PAPER</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="total-line">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="total-line total-final">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
+            <button class="checkout-btn" onclick="checkout()">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
         </div>
+    </div>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeQuickView()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quick-view-content">
+                <!-- Quick view content will be loaded here -->
             </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
         </div>
+    </div>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+    <!-- Special Offers Banner -->
+    <div class="floating-offers">
+        <div class="offer-banner">
+            <div class="offer-content">
+                <i class="fas fa-gift"></i>
+                <span>Free shipping on orders over $50!</span>
             </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
+            <button class="offer-close" onclick="closeOffer()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
+    </div>
 
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletterPopup">
+        <div class="newsletter-content">
+            <button class="newsletter-close" onclick="closeNewsletter()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="newsletter-header">
+                <i class="fas fa-envelope"></i>
+                <h3>Get 10% Off Your First Order!</h3>
+                <p>Subscribe to our newsletter for exclusive deals and new product updates</p>
             </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="products" id="anc">
-      <h1 class="heading">ART & CRAFT</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                    Subscribe
+                </button>
+            </form>
+            <div class="newsletter-footer">
+                <small>*Discount applies to stationery items only. Terms and conditions apply.</small>
             </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
         </div>
+    </div>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner">
+            <i class="fas fa-pencil-alt"></i>
+        </div>
+        <p>Loading amazing stationery...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </h3>
+                <a href="#location">Store Locations</a>
+                <a href="#careers">Careers</a>
+                <a href="#about">Our Story</a>
+                <a href="#sustainability">Sustainability</a>
             </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+            
+            <div class="footer-section">
+                <h3>
+                    <i class="fas fa-headset"></i>
+                    Customer Service
+                </h3>
+                <a href="#contact">Contact Us</a>
+                <a href="#shipping">Shipping Info</a>
+                <a href="#returns">Returns & Exchanges</a>
+                <a href="#faq">FAQ</a>
             </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+            
+            <div class="footer-section">
+                <h3>
+                    <i class="fas fa-tags"></i>
+                    Categories
+                </h3>
+                <a href="#writing">Writing Tools</a>
+                <a href="#paper">Paper Products</a>
+                <a href="#artcraft">Art & Craft</a>
+                <a href="#office">Office Supplies</a>
             </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="products" id="oth">
-      <h1 class="heading">OTHERS</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+            
+            <div class="footer-section">
+                <h3>
+                    <i class="fas fa-share-alt"></i>
+                    Follow Us
+                </h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon pinterest">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+                <div class="newsletter-signup">
+                    <h4>Newsletter</h4>
+                    <div class="newsletter-mini">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
         </div>
-
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 Popular Online. All rights reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
             </div>
-          </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
         </div>
+    </footer>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
-
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
-            </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- stationery -->
-  </body>
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+    <script src="stationery-enhanced.js"></script>
+</body>
 </html>
+                               
