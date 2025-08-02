@@ -3,120 +3,685 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <link href="promotion.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
+    <title>Special Promotions - Popular Online Store</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="promotion.css" />
   </head>
   <body>
-    <!-- header -->
+    <!-- Enhanced Header -->
     <header>
-      <img src="image/logopic.png" alt="logopic" class="logopic" />
-
-      <a href="#" class="logo">POPULAR ONLINE </a>
+      <div class="logo-container">
+        <div class="logo-pic">PO</div>
+        <a href="../index.html" class="logo">POPULAR ONLINE</a>
+      </div>
 
       <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="ourbook.html">Our Book</a>
-        <a href="stationery.html">Stationery</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="news&events.html">Review</a>
+        <a href="../index.html">Home</a>
+        <a href="../ourbook/ourbook.html">Our Books</a>
+        <a href="../stationery/stationery.html">Stationery</a>
+        <a href="promotion.html" class="active">Promotion</a>
+        <a href="../reviews.html">Reviews</a>
       </nav>
 
-      <a href="account.html"> <i class="ri-user-line"></i></a>
+      <div class="header-actions">
+        <div class="search-toggle" onclick="toggleSearch()">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+        <div class="user-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
     </header>
-    <!-- header -->
 
-    <!-- img -->
-    <section class="imgpromotion">
-      <img src="image/promotionpageimg.png" alt="promotion" />
+    <!-- Flash Sale Banner -->
+    <section class="flash-sale-banner">
+      <div class="sale-content">
+        <div class="sale-badge">
+          <i class="fas fa-bolt"></i>
+          FLASH SALE
+        </div>
+        <h1 class="sale-title">Up to <span class="highlight">70% OFF</span></h1>
+        <p class="sale-subtitle">Limited time offer on selected items</p>
+        <div class="countdown-timer">
+          <div class="timer-section">
+            <div class="timer-number" id="hours">23</div>
+            <div class="timer-label">Hours</div>
+          </div>
+          <div class="timer-section">
+            <div class="timer-number" id="minutes">45</div>
+            <div class="timer-label">Minutes</div>
+          </div>
+          <div class="timer-section">
+            <div class="timer-number" id="seconds">30</div>
+            <div class="timer-label">Seconds</div>
+          </div>
+        </div>
+        <button class="shop-now-btn" onclick="scrollToDeals()">
+          <i class="fas fa-shopping-bag"></i>
+          Shop Now
+        </button>
+      </div>
+      <div class="sale-graphics">
+        <div class="floating-icon icon-1">🎉</div>
+        <div class="floating-icon icon-2">💥</div>
+        <div class="floating-icon icon-3">🔥</div>
+        <div class="floating-icon icon-4">⚡</div>
+        <div class="floating-icon icon-5">🎯</div>
+      </div>
     </section>
-    <!-- img -->
 
-    <!-- book -->
-
-    <section class="products" id="products">
-      <h1 class="heading">UpTo<span> 60%</span></h1>
-
-      <div class="box-container">
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book1.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+    <!-- Promotion Categories -->
+    <section class="promotion-categories">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fas fa-tags"></i>
+          Current Promotions
+        </h2>
+        <div class="categories-grid">
+          <div class="promo-category" onclick="filterByCategory('flash')">
+            <div class="category-icon flash">
+              <i class="fas fa-bolt"></i>
             </div>
+            <h3>Flash Deals</h3>
+            <p>Limited time offers</p>
+            <span class="offer-badge">Up to 70% OFF</span>
           </div>
-          <div class="content">
-            <h3>Elon Musk</h3>
-            <div class="price">$12.99 <span>$15.99</span></div>
-          </div>
-        </div>
 
-        <div
-          class="box"
-          data-product-id="1"
-          data-product-title="Not Here To Stay"
-          data-product-price="40.50"
-        >
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book2.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+          <div class="promo-category" onclick="filterByCategory('clearance')">
+            <div class="category-icon clearance">
+              <i class="fas fa-percentage"></i>
             </div>
+            <h3>Clearance Sale</h3>
+            <p>Last chance deals</p>
+            <span class="offer-badge">Up to 60% OFF</span>
           </div>
-          <div class="content">
-            <h3>Not Here To Stay</h3>
-            <div class="price">$45.50 <span>$40.50</span></div>
-          </div>
-        </div>
 
-        <div class="box">
-          <span class="discount">-60%</span>
-          <div class="image">
-            <img src="image/book3.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+          <div class="promo-category" onclick="filterByCategory('bundle')">
+            <div class="category-icon bundle">
+              <i class="fas fa-layer-group"></i>
             </div>
+            <h3>Bundle Deals</h3>
+            <p>Buy more, save more</p>
+            <span class="offer-badge">Buy 2 Get 1 Free</span>
           </div>
-          <div class="content">
-            <h3>BlackPink K Pop N1</h3>
-            <div class="price">$67.50 <span>$267.50</span></div>
-          </div>
-        </div>
 
-        <div class="box">
-          <span class="discount">-10%</span>
-          <div class="image">
-            <img src="image/book4.png" alt="" />
-            <div class="icons">
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="cart-btn">add to cart</a>
-              <a href="#" class="fas fa-share"></a>
+          <div class="promo-category" onclick="filterByCategory('seasonal')">
+            <div class="category-icon seasonal">
+              <i class="fas fa-snowflake"></i>
             </div>
-          </div>
-          <div class="content">
-            <h3>Fall Of The School</h3>
-            <div class="price">$50.00 <span>$31.20</span></div>
+            <h3>Seasonal Sale</h3>
+            <p>Special occasions</p>
+            <span class="offer-badge">Up to 50% OFF</span>
           </div>
         </div>
       </div>
     </section>
-    <!-- book -->
+
+    <!-- Deal Filters -->
+    <section class="deal-filters">
+      <div class="container">
+        <div class="filter-header">
+          <h3>Filter Deals</h3>
+          <div class="active-filters" id="activeFilters"></div>
+        </div>
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label>Category:</label>
+            <select id="categoryFilter">
+              <option value="">All Categories</option>
+              <option value="books">Books</option>
+              <option value="stationery">Stationery</option>
+              <option value="electronics">Electronics</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Discount:</label>
+            <select id="discountFilter">
+              <option value="">Any Discount</option>
+              <option value="70">70% or more</option>
+              <option value="50">50% or more</option>
+              <option value="30">30% or more</option>
+              <option value="10">10% or more</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Price Range:</label>
+            <div class="price-range">
+              <input
+                type="range"
+                id="priceRange"
+                min="0"
+                max="200"
+                value="200"
+              />
+              <div class="price-display">
+                <span>$0</span>
+                <span id="maxPrice">$200</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="clear-filters" onclick="clearAllFilters()">
+            <i class="fas fa-times"></i>
+            Clear All
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hot Deals Section -->
+    <section class="hot-deals" id="deals">
+      <div class="container">
+        <div class="deals-header">
+          <h2 class="section-title">
+            <i class="fas fa-fire"></i>
+            Hot Deals
+          </h2>
+          <div class="deals-stats">
+            <span id="dealsCount">24 deals available</span>
+            <div class="view-toggle">
+              <button
+                class="view-btn active"
+                data-view="grid"
+                onclick="toggleView('grid')"
+              >
+                <i class="fas fa-th"></i>
+              </button>
+              <button
+                class="view-btn"
+                data-view="list"
+                onclick="toggleView('list')"
+              >
+                <i class="fas fa-list"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="deals-grid" id="dealsGrid">
+          <!-- Flash Deal Card -->
+          <div
+            class="deal-card flash-deal"
+            data-category="books"
+            data-discount="77"
+            data-price="12.99"
+          >
+            <div class="deal-badge flash">
+              <i class="fas fa-bolt"></i>
+              FLASH DEAL
+            </div>
+            <div class="deal-timer" data-end="2024-12-31T23:59:59">
+              <i class="fas fa-clock"></i>
+              <span class="time-left">2h 15m left</span>
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop"
+                alt="Elon Musk Biography"
+              />
+              <div class="discount-badge">-77%</div>
+              <div class="stock-indicator low">
+                <i class="fas fa-exclamation-triangle"></i>
+                Only 3 left!
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">Elon Musk Biography</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$12.99</span>
+                <span class="original-price">$56.99</span>
+                <span class="savings">Save $44</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+                <span class="sold-count">85% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clearance Deal Card -->
+          <div
+            class="deal-card clearance-deal"
+            data-category="books"
+            data-discount="73"
+            data-price="40.50"
+          >
+            <div class="deal-badge clearance">
+              <i class="fas fa-percentage"></i>
+              CLEARANCE
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop"
+                alt="Not Here To Stay"
+              />
+              <div class="discount-badge">-73%</div>
+              <div class="stock-indicator medium">
+                <i class="fas fa-info-circle"></i>
+                8 left
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">Not Here To Stay</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$40.50</span>
+                <span class="original-price">$150.00</span>
+                <span class="savings">Save $109.50</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <span class="sold-count">60% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bundle Deal Card -->
+          <div
+            class="deal-card bundle-deal"
+            data-category="books"
+            data-discount="75"
+            data-price="67.50"
+          >
+            <div class="deal-badge bundle">
+              <i class="fas fa-layer-group"></i>
+              BUNDLE DEAL
+            </div>
+            <div class="bundle-info">
+              <span class="bundle-text">Buy 2 Get 1 FREE</span>
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1481304494613-c2a3b0e2b4b2?w=300&h=400&fit=crop"
+                alt="BlackPink K-Pop Guide"
+              />
+              <div class="discount-badge">-75%</div>
+              <div class="stock-indicator high">
+                <i class="fas fa-check-circle"></i>
+                In Stock
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">BlackPink K-Pop Bundle</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$67.50</span>
+                <span class="original-price">$270.00</span>
+                <span class="savings">Save $202.50</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                <span class="sold-count">40% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seasonal Deal Card -->
+          <div
+            class="deal-card seasonal-deal"
+            data-category="books"
+            data-discount="38"
+            data-price="31.20"
+          >
+            <div class="deal-badge seasonal">
+              <i class="fas fa-snowflake"></i>
+              WINTER SALE
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop"
+                alt="Fall Of The School"
+              />
+              <div class="discount-badge">-38%</div>
+              <div class="stock-indicator high">
+                <i class="fas fa-check-circle"></i>
+                In Stock
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">Fall Of The School</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$31.20</span>
+                <span class="original-price">$50.00</span>
+                <span class="savings">Save $18.80</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 25%"></div>
+                </div>
+                <span class="sold-count">25% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stationery Flash Deal -->
+          <div
+            class="deal-card flash-deal"
+            data-category="stationery"
+            data-discount="65"
+            data-price="24.99"
+          >
+            <div class="deal-badge flash">
+              <i class="fas fa-bolt"></i>
+              FLASH DEAL
+            </div>
+            <div class="deal-timer" data-end="2024-12-31T23:59:59">
+              <i class="fas fa-clock"></i>
+              <span class="time-left">1h 45m left</span>
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&h=400&fit=crop"
+                alt="Premium Pen Set"
+              />
+              <div class="discount-badge">-65%</div>
+              <div class="stock-indicator low">
+                <i class="fas fa-exclamation-triangle"></i>
+                Only 5 left!
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">Premium Pen Set</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$24.99</span>
+                <span class="original-price">$71.40</span>
+                <span class="savings">Save $46.41</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 90%"></div>
+                </div>
+                <span class="sold-count">90% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Electronics Deal -->
+          <div
+            class="deal-card clearance-deal"
+            data-category="electronics"
+            data-discount="55"
+            data-price="89.99"
+          >
+            <div class="deal-badge clearance">
+              <i class="fas fa-percentage"></i>
+              CLEARANCE
+            </div>
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=400&fit=crop"
+                alt="Wireless Headphones"
+              />
+              <div class="discount-badge">-55%</div>
+              <div class="stock-indicator medium">
+                <i class="fas fa-info-circle"></i>
+                12 left
+              </div>
+            </div>
+            <div class="deal-info">
+              <h3 class="product-title">Wireless Headphones</h3>
+              <div class="price-comparison">
+                <span class="sale-price">$89.99</span>
+                <span class="original-price">$199.99</span>
+                <span class="savings">Save $110</span>
+              </div>
+              <div class="deal-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 70%"></div>
+                </div>
+                <span class="sold-count">70% claimed</span>
+              </div>
+              <div class="deal-actions">
+                <button class="add-to-cart-btn" onclick="addToCart(this)">
+                  <i class="fas fa-shopping-cart"></i>
+                  Add to Cart
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="load-more-section">
+          <button class="load-more-btn" onclick="loadMoreDeals()">
+            <i class="fas fa-plus"></i>
+            Load More Deals
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="special-offers">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fas fa-gift"></i>
+          Special Offers
+        </h2>
+        <div class="offers-grid">
+          <div class="offer-card newsletter">
+            <div class="offer-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Newsletter Discount</h3>
+            <p>Subscribe and get 15% off your first order</p>
+            <button class="offer-btn" onclick="showNewsletterModal()">
+              Subscribe Now
+            </button>
+          </div>
+
+          <div class="offer-card referral">
+            <div class="offer-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Refer a Friend</h3>
+            <p>Both get $10 off when your friend makes their first purchase</p>
+            <button class="offer-btn" onclick="showReferralModal()">
+              Refer Now
+            </button>
+          </div>
+
+          <div class="offer-card loyalty">
+            <div class="offer-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Loyalty Rewards</h3>
+            <p>Earn points with every purchase and unlock exclusive deals</p>
+            <button class="offer-btn" onclick="showLoyaltyModal()">
+              Join Program
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <i class="fas fa-shopping-cart"></i>
+          Shopping Cart
+        </h3>
+        <button class="close-cart" onclick="toggleCart()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Your cart is empty</p>
+          <p class="cart-suggestion">Add some amazing deals!</p>
+        </div>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary">
+          <div class="summary-line">
+            <span>Subtotal:</span>
+            <span id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="summary-line discount">
+            <span>Savings:</span>
+            <span id="cartSavings">$0.00</span>
+          </div>
+          <div class="summary-line total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">
+          <i class="fas fa-credit-card"></i>
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <!-- Newsletter Modal -->
+    <div class="modal-overlay" id="newsletterModal">
+      <div class="modal-content newsletter-modal">
+        <button class="modal-close" onclick="closeModal('newsletterModal')">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-header">
+          <i class="fas fa-envelope"></i>
+          <h3>Get 15% OFF Your First Order!</h3>
+          <p>Subscribe to our newsletter for exclusive deals and promotions</p>
+        </div>
+        <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+          <input type="email" placeholder="Enter your email address" required />
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+            Get My Discount
+          </button>
+        </form>
+        <div class="modal-footer">
+          <small
+            >*Discount code will be sent to your email. Terms and conditions
+            apply.</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search for deals and products..."
+          id="searchInput"
+        />
+        <button class="search-close" onclick="toggleSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+      <div class="spinner">
+        <i class="fas fa-shopping-bag"></i>
+      </div>
+      <p>Loading amazing deals...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Our Promotions</h3>
+          <a href="#terms">Terms & Conditions</a>
+          <a href="#policy">Return Policy</a>
+          <a href="#help">Help Center</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#flash">Flash Deals</a>
+          <a href="#clearance">Clearance Sale</a>
+          <a href="#bundles">Bundle Offers</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+    <script src="promotion.js"></script>
   </body>
 </html>
