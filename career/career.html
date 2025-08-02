@@ -1,35 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <script>
-      window.addEventListener("load", (event) => {
-        currentSlide(1);
-      });
-    </script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
-  </head>
-  <body>
-    <section class="privacy">
-      <div class="upp">
-        <a href="index.html"><i class="ri-arrow-left-circle-line"></i></a>
-        <h1>POPULAR <span>ONLINE</span> | CAREER</h1>
-      </div>
-      <br />
-      <br />
-      <br />
-      <img src="image/career.png" alt="career" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Popular Online</title>
+    <link rel="stylesheet" href="career-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="back-btn">
+                <i class="ri-arrow-left-circle-line"></i>
+                <span>Back to Home</span>
+            </a>
+            <h1 class="page-title">
+                <i class="fas fa-briefcase"></i>
+                POPULAR <span>CAREERS</span>
+            </h1>
+            <div class="header-actions">
+                <button class="action-btn" id="filterBtn">
+                    <i class="fas fa-filter"></i>
+                    <span>Filter Jobs</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Join Our Amazing Team</h2>
+                    <p class="hero-subtitle">Be part of something extraordinary. We're looking for passionate individuals who want to make a difference in the world of books and education.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Team Members</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>8</h3>
+                            <p>Office Locations</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Open Positions</p>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="cta-btn primary" onclick="scrollToJobs()">
+                            <span>View Open Positions</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        <button class="cta-btn secondary" onclick="scrollToValues()">
+                            <span>Our Values</span>
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="career-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Technology</h4>
+                        </div>
+                        <div class="career-card">
+                            <i class="fas fa-palette"></i>
+                            <h4>Design</h4>
+                        </div>
+                        <div class="career-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Marketing</h4>
+                        </div>
+                        <div class="career-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Operations</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </body>
+
+    <!-- Company Values Section -->
+    <section class="values-section" id="values">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Us?</h2>
+                <p>Discover what makes Popular Online a great place to build your career</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Innovation First</h3>
+                    <p>We embrace cutting-edge technology and encourage creative thinking to solve complex challenges.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>Flexible working hours, remote options, and comprehensive wellness programs for all employees.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Continuous Learning</h3>
+                    <p>Professional development opportunities, training programs, and conference attendance support.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Impact</h3>
+                    <p>Make a difference in education and literacy worldwide through our innovative platforms.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Inclusive Culture</h3>
+                    <p>Diverse, welcoming environment where everyone's voice is heard and valued.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Recognition</h3>
+                    <p>Performance-based rewards, career advancement opportunities, and public recognition programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Filter Section -->
+    <section class="filter-section" id="filterSection">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="departmentFilter">Department</label>
+                    <select id="departmentFilter">
+                        <option value="">All Departments</option>
+                        <option value="technology">Technology</option>
+                        <option value="design">Design & UX</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="operations">Operations</option>
+                        <option value="finance">Finance</option>
+                        <option value="hr">Human Resources</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="locationFilter">Location</label>
+                    <select id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="johor-bahru">Johor Bahru</option>
+                        <option value="kuala-lumpur">Kuala Lumpur</option>
+                        <option value="singapore">Singapore</option>
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="typeFilter">Employment Type</label>
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="searchInput">Search Jobs</label>
+                    <input type="text" id="searchInput" placeholder="Job title, keywords...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section" id="jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Positions</h2>
+                <p>Find your next adventure with us</p>
+            </div>
+            <div class="jobs-grid" id="jobsGrid">
+                <!-- Jobs will be populated by JavaScript -->
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span>Load More Positions</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Employee Benefits</h2>
+                <p>We take care of our team members</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medkit"></i>
+                    </div>
+                    <h4>Health Insurance</h4>
+                    <p>Comprehensive medical, dental, and vision coverage</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h4>Retirement Plan</h4>
+                    <p>Company-matched 401(k) and pension contributions</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h4>Paid Time Off</h4>
+                    <p>Generous vacation days, sick leave, and personal time</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Flexible Work</h4>
+                    <p>Remote work options and flexible scheduling</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h4>Wellness Programs</h4>
+                    <p>Gym memberships, mental health support, and wellness stipends</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h4>Learning Budget</h4>
+                    <p>Annual budget for courses, books, and professional development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal-overlay" id="applicationModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalJobTitle">Apply for Position</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <form id="applicationForm" class="application-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="firstName" name="firstName" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName" name="lastName" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="portfolio" name="portfolio">
+                        <label for="portfolio">Portfolio/LinkedIn URL</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="coverLetter" name="coverLetter" rows="4" required></textarea>
+                        <label for="coverLetter">Cover Letter</label>
+                    </div>
+                    <div class="form-group file-upload">
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        <label for="resume" class="file-label">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload Resume (PDF, DOC, DOCX)</span>
+                        </label>
+                        <div class="file-info" id="fileInfo"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">
+                            <span>Submit Application</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <div class="modal-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for your interest in joining our team. We'll review your application and get back to you within 5-7 business days.</p>
+                <button class="btn-primary" onclick="closeSuccessModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="career-script.js"></script>
+</body>
 </html>
