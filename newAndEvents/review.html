@@ -1,144 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="sytle.css" rel="stylesheet" />
-    <link href="review.css" rel="stylesheet" />
-    <script src="carousel.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
-    />
-  </head>
-  <body>
-    <!-- header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Popular Online Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+    <!-- Enhanced Header -->
     <header>
-      <img src="image/logopic.png" alt="logopic" class="logopic" />
-
-      <a href="#" class="logo">POPULAR ONLINE </a>
-
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="ourbook.html">Our Book</a>
-        <a href="stationery.html">Stationery</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="news&events.html">Review</a>
-      </nav>
-
-      <a href="account.html"> <i class="ri-user-line"></i></a>
+        <div class="logo-container">
+            <div class="logo-pic">PO</div>
+            <a href="../index.html" class="logo">POPULAR ONLINE</a>
+        </div>
+        
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../ourbook/ourbook.html">Our Books</a>
+            <a href="../stationery/stationery.html">Stationery</a>
+            <a href="../promotion/promotion.html">Promotion</a>
+            <a href="reviews.html" class="active">Reviews</a>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="search-toggle" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
     </header>
-    <!-- header -->
 
-    <!-- review -->
-
-    <section class="review" id="review">
-      <h1 class="heading">customer's <span>review</span></h1>
-
-      <div class="box-container">
-        <div class="box">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum enim
-            quidem atque aut dolorem neque obcaecati sequi blanditiis. Provident
-            nisi ab accusamus eius enim nihil eaque ex nulla, repellat esse est
-            magni? Minus ullam corporis temporibus quae sapiente provident
-            recusandae, eaque numquam facere nobis fuga placeat, maiores
-            assumenda sint! Minus voluptatum incidunt consequatur non ea
-            reiciendis ipsam, harum totam earum, officiis alias molestias.
-            Voluptatum voluptate, ad ratione soluta voluptatem sunt maxime
-            placeat numquam. Commodi, vitae voluptate, veritatis facilis minima
-            laboriosam praesentium voluptates labore rerum quia accusamus iusto
-            officiis qui animi repellat dolores ad saepe nesciunt id amet illum
-            dolorum. Dolore?
-          </p>
-          <div class="user">
-            <img src="image/review1.jpg" alt="" />
-            <div class="user-info">
-              <h3>Low</h3>
-              <span>VIP customer</span>
+    <!-- Hero Section -->
+    <section class="reviews-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Customer Reviews</h1>
+                <p>See what our amazing customers are saying about their shopping experience</p>
+                <div class="overall-rating">
+                    <div class="rating-display">
+                        <span class="rating-number">4.8</span>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">Based on 2,847 reviews</span>
+                    </div>
+                    <button class="write-review-btn" onclick="showWriteReviewModal()">
+                        <i class="fas fa-edit"></i>
+                        Write a Review
+                    </button>
+                </div>
             </div>
-          </div>
-          <span class="fas fa-quote-right"></span>
-        </div>
-
-        <div class="box">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum enim
-            quidem atque aut dolorem neque obcaecati sequi blanditiis. Provident
-            nisi ab accusamus eius enim nihil eaque ex nulla, repellat esse est
-            magni? Minus ullam corporis temporibus quae sapiente provident
-            recusandae, eaque numquam facere nobis fuga placeat, maiores
-            assumenda sint! Minus voluptatum incidunt consequatur non ea
-            reiciendis ipsam, harum totam earum, officiis alias molestias.
-            Voluptatum voluptate, ad ratione soluta voluptatem sunt maxime
-            placeat numquam. Commodi, vitae voluptate, veritatis facilis minima
-            laboriosam praesentium voluptates labore rerum quia accusamus iusto
-            officiis qui animi repellat dolores ad saepe nesciunt id amet illum
-            dolorum. Dolore?
-          </p>
-          <div class="user">
-            <img src="image/review2.jpg" alt="" />
-            <div class="user-info">
-              <h3>lim</h3>
-              <span>Happy customer</span>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">15,000+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number">4.8/5</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
             </div>
-          </div>
-          <span class="fas fa-quote-right"></span>
         </div>
-
-        <div class="box">
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum enim
-            quidem atque aut dolorem neque obcaecati sequi blanditiis. Provident
-            nisi ab accusamus eius enim nihil eaque ex nulla, repellat esse est
-            magni? Minus ullam corporis temporibus quae sapiente provident
-            recusandae, eaque numquam facere nobis fuga placeat, maiores
-            assumenda sint! Minus voluptatum incidunt consequatur non ea
-            reiciendis ipsam, harum totam earum, officiis alias molestias.
-            Voluptatum voluptate, ad ratione soluta voluptatem sunt maxime
-            placeat numquam. Commodi, vitae voluptate, veritatis facilis minima
-            laboriosam praesentium voluptates labore rerum quia accusamus iusto
-            officiis qui animi repellat dolores ad saepe nesciunt id amet illum
-            dolorum. Dolore?
-          </p>
-          <div class="user">
-            <img src="image/review3.PNG" alt="" />
-            <div class="user-info">
-              <h3>liew</h3>
-              <span>student</span>
-            </div>
-          </div>
-          <span class="fas fa-quote-right"></span>
-        </div>
-      </div>
     </section>
 
-    <!-- review -->
-  </body>
+    <!-- Rating Breakdown -->
+    <section class="rating-breakdown">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-chart-bar"></i>
+                Rating Breakdown
+            </h2>
+            <div class="breakdown-grid">
+                <div class="rating-bars">
+                    <div class="rating-bar">
+                        <span class="rating-label">5 Stars</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 78%"></div>
+                        </div>
+                        <span class="rating-percentage">78%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">4 Stars</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 15%"></div>
+                        </div>
+                        <span class="rating-percentage">15%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">3 Stars</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 5%"></div>
+                        </div>
+                        <span class="rating-percentage">5%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">2 Stars</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 1%"></div>
+                        </div>
+                        <span class="rating-percentage">1%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span class="rating-label">1 Star</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 1%"></div>
+                        </div>
+                        <span class="rating-percentage">1%</span>
+                    </div>
+                </div>
+                <div class="review-highlights">
+                    <h3>What customers love most:</h3>
+                    <div class="highlight-tags">
+                        <span class="tag">Fast Shipping</span>
+                        <span class="tag">Great Quality</span>
+                        <span class="tag">Excellent Service</span>
+                        <span class="tag">Good Prices</span>
+                        <span class="tag">Easy Returns</span>
+                        <span class="tag">Wide Selection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Filters -->
+    <section class="review-filters">
+        <div class="container">
+            <div class="filter-header">
+                <h3>Filter Reviews</h3>
+                <div class="sort-options">
+                    <select id="sortReviews">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Rating</option>
+                        <option value="lowest">Lowest Rating</option>
+                        <option value="helpful">Most Helpful</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="filterReviews('all')">
+                    All Reviews
+                </button>
+                <button class="filter-btn" data-filter="5" onclick="filterReviews('5')">
+                    <i class="fas fa-star"></i> 5 Stars
+                </button>
+                <button class="filter-btn" data-filter="4" onclick="filterReviews('4')">
+                    <i class="fas fa-star"></i> 4 Stars
+                </button>
+                <button class="filter-btn" data-filter="3" onclick="filterReviews('3')">
+                    <i class="fas fa-star"></i> 3 Stars
+                </button>
+                <button class="filter-btn" data-filter="verified" onclick="filterReviews('verified')">
+                    <i class="fas fa-shield-check"></i> Verified Only
+                </button>
+                <button class="filter-btn" data-filter="photos" onclick="filterReviews('photos')">
+                    <i class="fas fa-camera"></i> With Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Reviews -->
+    <section class="featured-reviews">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i>
+                Featured Reviews
+            </h2>
+            <div class="featured-carousel" id="featuredCarousel">
+                <div class="review-slide active">
+                    <div class="featured-review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b9b2e1a2?w=100&h=100&fit=crop&crop=face" alt="Sarah Johnson" class="reviewer-avatar">
+                                <div class="reviewer-details">
+                                    <h4>Sarah Johnson</h4>
+                                    <span class="reviewer-level">VIP Customer</span>
+                                    <div class="verified-badge">
+                                        <i class="fas fa-shield-check"></i>
+                                        Verified Purchase
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h3>"Outstanding service and quality!"</h3>
+                            <p>I've been shopping with Popular Online for over a year now, and they never disappoint. The book selection is incredible, shipping is always fast, and customer service goes above and beyond. Highly recommend!</p>
+                            <div class="review-photos">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Review photo" onclick="openPhotoModal(this)">
+                                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=150&h=150&fit=crop" alt="Review photo" onclick="openPhotoModal(this)">
+                            </div>
+                            <div class="review-actions">
+                                <button class="helpful-btn" onclick="markHelpful(this)">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful (24)
+                                </button>
+                                <button class="reply-btn" onclick="showReplyForm(this)">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-slide">
+                    <div class="featured-review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Mike Chen" class="reviewer-avatar">
+                                <div class="reviewer-details">
+                                    <h4>Mike Chen</h4>
+                                    <span class="reviewer-level">Regular Customer</span>
+                                    <div class="verified-badge">
+                                        <i class="fas fa-shield-check"></i>
+                                        Verified Purchase
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">5 days ago</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <h3>"Perfect for students and professionals"</h3>
+                            <p>As a university student, I need quality stationery and books at affordable prices. Popular Online delivers exactly that. Their stationery collection is top-notch and the textbook selection saved me hundreds!</p>
+                            <div class="review-actions">
+                                <button class="helpful-btn" onclick="markHelpful(this)">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Helpful (18)
+                                </button>
+                                <button class="reply-btn" onclick="showReplyForm(this)">
+                                    <i class="fas fa-reply"></i>
+                                    Reply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Reviews -->
+    <section class="all-reviews">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-comments"></i>
+                All Customer Reviews
+            </h2>
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Regular Review Card -->
+                <div class="review-card" data-rating="5" data-verified="true" data-photos="false">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Emma Wilson" class="reviewer-avatar">
+                            <div class="reviewer-details">
+                                <h4>Emma Wilson</h4>
+                                <span class="reviewer-level">New Customer</span>
+                                <div class="verified-badge">
+                                    <i class="fas fa-shield-check"></i>
+                                    Verified
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date">1 week ago</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>"Amazing book selection!"</h3>
+                        <p>Found exactly what I was looking for and more. The website is easy to navigate and checkout was seamless. Will definitely be back for more purchases!</p>
+                        <div class="review-actions">
+                            <button class="helpful-btn" onclick="markHelpful(this)">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful (12)
+                            </button>
+                            <button class="reply-btn" onclick="showReplyForm(this)">
+                                <i class="fas fa-reply"></i>
+                                Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review with Photos -->
+                <div class="review-card" data-rating="5" data-verified="true" data-photos="true">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="David Kim" class="reviewer-avatar">
+                            <div class="reviewer-details">
+                                <h4>David Kim</h4>
+                                <span class="reviewer-level">Loyal Customer</span>
+                                <div class="verified-badge">
+                                    <i class="fas fa-shield-check"></i>
+                                    Verified
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>"Quality stationery, fast delivery"</h3>
+                        <p>Ordered premium pens and notebooks for my office. Everything arrived perfectly packaged and the quality exceeded my expectations. Great value for money!</p>
+                        <div class="review-photos">
+                            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=120&h=120&fit=crop" alt="Review photo" onclick="openPhotoModal(this)">
+                            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=120&h=120&fit=crop" alt="Review photo" onclick="openPhotoModal(this)">
+                            <span class="more-photos">+2 more</span>
+                        </div>
+                        <div class="review-actions">
+                            <button class="helpful-btn" onclick="markHelpful(this)">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful (8)
+                            </button>
+                            <button class="reply-btn" onclick="showReplyForm(this)">
+                                <i class="fas fa-reply"></i>
+                                Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Star Review -->
+                <div class="review-card" data-rating="4" data-verified="true" data-photos="false">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Lisa Rodriguez" class="reviewer-avatar">
+                            <div class="reviewer-details">
+                                <h4>Lisa Rodriguez</h4>
+                                <span class="reviewer-level">Regular Customer</span>
+                                <div class="verified-badge">
+                                    <i class="fas fa-shield-check"></i>
+                                    Verified
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-date">3 weeks ago</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>"Good service, minor shipping delay"</h3>
+                        <p>Overall satisfied with my purchase. The books were in perfect condition and well-packaged. Only reason for 4 stars is the shipping took a day longer than expected, but customer service was responsive about it.</p>
+                        <div class="review-actions">
+                            <button class="helpful-btn" onclick="markHelpful(this)">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful (5)
+                            </button>
+                            <button class="reply-btn" onclick="showReplyForm(this)">
+                                <i class="fas fa-reply"></i>
+                                Reply
+                            </button>
+                        </div>
+                        <div class="store-reply">
+                            <div class="reply-header">
+                                <i class="fas fa-store"></i>
+                                <strong>Popular Online Store</strong>
+                                <span class="reply-date">2 weeks ago</span>
+                            </div>
+                            <p>Thank you for your feedback, Lisa! We're glad you loved the books. We've improved our shipping process and expect faster delivery times going forward. We appreciate your patience!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Star Review -->
+                <div class="review-card" data-rating="3" data-verified="false" data-photos="false">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Anonymous" class="reviewer-avatar">
+                            <div class="reviewer-details">
+                                <h4>Anonymous User</h4>
+                                <span class="reviewer-level">Guest</span>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-date">1 month ago</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>"Average experience"</h3>
+                        <p>Product was okay, but website could be more user-friendly. Had some trouble finding what I needed, but eventually got it sorted out.</p>
+                        <div class="review-actions">
+                            <button class="helpful-btn" onclick="markHelpful(this)">
+                                <i class="fas fa-thumbs-up"></i>
+                                Helpful (2)
+                            </button>
+                            <button class="reply-btn" onclick="showReplyForm(this)">
+                                <i class="fas fa-reply"></i>
+                                Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more-section">
+                <button class="load-more-btn" onclick="loadMoreReviews()">
+                    <i class="fas fa-plus"></i>
+                    Load More Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Write Review Modal -->
+    <div class="modal-overlay" id="writeReviewModal">
+        <div class="modal-content write-review-modal">
+            <button class="modal-close" onclick="closeWriteReviewModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2>Write a Review</h2>
+                <p>Share your experience with other customers</p>
+            </div>
+            <form class="review-form" onsubmit="submitReview(event)">
+                <div class="form-group">
+                    <label>Your Rating *</label>
+                    <div class="rating-input" id="ratingInput">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewTitle">Review Title *</label>
+                    <input type="text" id="reviewTitle" placeholder="Summarize your experience" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Your Review *</label>
+                    <textarea id="reviewText" placeholder="Tell others about your experience..." rows="5" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewerName">Your Name *</label>
+                    <input type="text" id="reviewerName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewPhotos">Add Photos (Optional)</label>
+                    <input type="file" id="reviewPhotos" accept="image/*" multiple>
+                    <small>You can upload up to 5 photos</small>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeWriteReviewModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Review
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="modal-overlay" id="photoModal">
+        <div class="photo-modal-content">
+            <button class="modal-close" onclick="closePhotoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalPhoto" src="" alt="Review photo">
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search reviews..." id="searchInput">
+            <button class="search-close" onclick="toggleSearch()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner">
+            <i class="fas fa-star"></i>
+        </div>
+        <p>Loading reviews...</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <a href="#contact">Contact Us</a>
+                <a href="#support">Support Center</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <a href="#review-policy">Review Policy</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+    <script src="reviews-enhanced.js"></script>
+</body>
 </html>
