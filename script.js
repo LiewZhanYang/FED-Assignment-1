@@ -1,7 +1,5 @@
-// Global Variables
+// Main Page Script (Carousel and Product interactions only)
 let currentSlideIndex = 0;
-let cart = [];
-let cartCount = 0;
 
 // DOM Elements
 const slides = document.querySelectorAll(".carousel-slide");
@@ -42,232 +40,6 @@ function startCarouselAutoplay() {
   }, 5000);
 }
 
-// Enhanced Cart Functionality
-function updateCartCount() {
-  const cartCountElement = document.querySelector(".cart-count");
-  if (cartCountElement) {
-    cartCountElement.textContent = cartCount;
-  }
-}
-
-function addToCart(button) {
-  const productCard = button.closest(".product-card");
-  const productData = JSON.parse(productCard.dataset.product);
-
-  // Add loading state
-  const originalText = button.innerHTML;
-  button.innerHTML = '<div class="loading"></div>';
-  button.disabled = true;
-
-  setTimeout(() => {
-    // Check if product already exists in cart
-    const existingItem = cart.find((item) => item.id === productData.id);
-
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({
-        ...productData,
-        quantity: 1,
-      });
-    }
-
-    cartCount++;
-    updateCartCount();
-    updateCartDisplay();
-
-    // Show success feedback
-    button.innerHTML = '<i class="fas fa-check"></i> Added!';
-    button.style.background = "var(--success-color)";
-
-    setTimeout(() => {
-      button.innerHTML = originalText;
-      button.style.background = "var(--primary-color)";
-      button.disabled = false;
-    }, 1500);
-
-    // Show toast notification
-    showToast("Product added to cart!", "success");
-  }, 800);
-}
-
-function removeFromCart(productId) {
-  const itemIndex = cart.findIndex((item) => item.id === productId);
-  if (itemIndex > -1) {
-    cartCount -= cart[itemIndex].quantity;
-    cart.splice(itemIndex, 1);
-    updateCartCount();
-    updateCartDisplay();
-    showToast("Product removed from cart", "info");
-  }
-}
-
-function updateQuantity(productId, change) {
-  const item = cart.find((item) => item.id === productId);
-  if (item) {
-    const oldQuantity = item.quantity;
-    item.quantity += change;
-
-    if (item.quantity <= 0) {
-      removeFromCart(productId);
-      return;
-    }
-
-    cartCount += change;
-    updateCartCount();
-    updateCartDisplay();
-  }
-}
-
-function updateCartDisplay() {
-  const cartItems = document.getElementById("cartItems");
-
-  if (!cartItems) return;
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = `
-            <div class="cart-empty" style="text-align: center; padding: 2rem; color: #9ca3af;">
-                <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <p>Your cart is empty</p>
-            </div>
-        `;
-    return;
-  }
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  cartItems.innerHTML = `
-        ${cart
-          .map(
-            (item) => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.title}">
-                <div class="cart-item-info">
-                    <div class="cart-item-name">${item.title}</div>
-                    <div class="cart-item-price">$${item.price.toFixed(2)}</div>
-                    <div class="quantity-controls">
-                        <button class="qty-btn" onclick="updateQuantity(${
-                          item.id
-                        }, -1)">-</button>
-                        <span style="margin: 0 10px; font-weight: 600;">${
-                          item.quantity
-                        }</span>
-                        <button class="qty-btn" onclick="updateQuantity(${
-                          item.id
-                        }, 1)">+</button>
-                        <button class="qty-btn" onclick="removeFromCart(${
-                          item.id
-                        })" style="margin-left: 10px; color: var(--secondary-color);">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `
-          )
-          .join("")}
-        <div style="border-top: 2px solid var(--border-color); margin-top: 1rem; padding-top: 1rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; font-weight: 700;">
-                <span>Total:</span>
-                <span style="color: var(--primary-color);">$${total.toFixed(
-                  2
-                )}</span>
-            </div>
-        </div>
-    `;
-}
-
-function toggleCart() {
-  const cartSidebar = document.getElementById("cartSidebar");
-  if (!cartSidebar) return;
-
-  cartSidebar.classList.toggle("open");
-
-  // Add backdrop
-  if (cartSidebar.classList.contains("open")) {
-    const backdrop = document.createElement("div");
-    backdrop.className = "cart-backdrop";
-    backdrop.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-    document.body.appendChild(backdrop);
-
-    setTimeout(() => (backdrop.style.opacity = "1"), 10);
-
-    backdrop.onclick = () => {
-      toggleCart();
-    };
-  } else {
-    const backdrop = document.querySelector(".cart-backdrop");
-    if (backdrop) {
-      backdrop.style.opacity = "0";
-      setTimeout(() => backdrop.remove(), 300);
-    }
-  }
-}
-
-function checkout() {
-  if (cart.length === 0) {
-    showToast("Your cart is empty!", "warning");
-    return;
-  }
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  showToast(
-    `Proceeding to checkout with total: $${total.toFixed(2)}`,
-    "success"
-  );
-
-  // Simulate checkout process
-  setTimeout(() => {
-    cart = [];
-    cartCount = 0;
-    updateCartCount();
-    updateCartDisplay();
-    toggleCart();
-    showToast("Order placed successfully! 🎉", "success");
-  }, 2000);
-}
-
-// Toast Notification System
-function showToast(message, type = "info") {
-  const toast = document.createElement("div");
-  toast.className = `toast ${type}`;
-
-  const icons = {
-    success: "check-circle",
-    warning: "exclamation-triangle",
-    error: "times-circle",
-    info: "info-circle",
-  };
-
-  toast.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <i class="fas fa-${icons[type] || icons.info}"></i>
-            <span>${message}</span>
-        </div>
-    `;
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.style.transform = "translateX(0)";
-  }, 100);
-
-  setTimeout(() => {
-    toast.style.transform = "translateX(400px)";
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
-}
-
 // Heart/Wishlist Functionality
 function initializeWishlistButtons() {
   document.querySelectorAll(".action-btn.heart").forEach((button) => {
@@ -299,7 +71,7 @@ function initializeShareButtons() {
       if (navigator.share) {
         navigator.share({
           title: productData.title,
-          text: `Check out this book: ${productData.title} for $${productData.price}`,
+          text: `Check out this book: ${productData.title} for ${productData.price}`,
           url: window.location.href,
         });
       } else {
@@ -318,49 +90,35 @@ function initializeShareButtons() {
   });
 }
 
-// Smooth Scrolling for Navigation
-function initializeSmoothScrolling() {
-  document.querySelectorAll(".navbar a").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
+// Toast Notification System
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
-  });
-}
+  const icons = {
+    success: "check-circle",
+    warning: "exclamation-triangle",
+    error: "times-circle",
+    info: "info-circle",
+  };
 
-// Header Scroll Effect
-function initializeHeaderScrollEffect() {
-  let lastScrollY = window.scrollY;
+  toast.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <i class="fas fa-${icons[type] || icons.info}"></i>
+      <span>${message}</span>
+    </div>
+  `;
 
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const currentScrollY = window.scrollY;
+  document.body.appendChild(toast);
 
-    if (currentScrollY > 100) {
-      header.style.background = "rgba(255, 255, 255, 0.98)";
-      header.style.backdropFilter = "blur(20px)";
-    } else {
-      header.style.background = "rgba(255, 255, 255, 0.95)";
-      header.style.backdropFilter = "blur(10px)";
-    }
+  setTimeout(() => {
+    toast.style.transform = "translateX(0)";
+  }, 100);
 
-    // Hide/show header on scroll
-    if (currentScrollY > lastScrollY && currentScrollY > 200) {
-      header.style.transform = "translateY(-100%)";
-    } else {
-      header.style.transform = "translateY(0)";
-    }
-
-    lastScrollY = currentScrollY;
-  });
+  setTimeout(() => {
+    toast.style.transform = "translateX(400px)";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 // Intersection Observer for Animations
@@ -407,14 +165,14 @@ function createSearchBar() {
   if (!searchContainer) return;
 
   searchContainer.innerHTML = `
-        <div class="search-bar">
-            <input type="text" 
-                   class="search-input" 
-                   id="searchInput" 
-                   placeholder="Search books..." 
-                   autocomplete="off">
-        </div>
-    `;
+    <div class="search-bar">
+      <input type="text" 
+             class="search-input" 
+             id="searchInput" 
+             placeholder="Search books..." 
+             autocomplete="off">
+    </div>
+  `;
 
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
@@ -448,14 +206,10 @@ function handleSearch(e) {
 // Keyboard Navigation
 function initializeKeyboardNavigation() {
   document.addEventListener("keydown", function (e) {
-    // Escape key - close cart or search
+    // Escape key - close search
     if (e.key === "Escape") {
-      const cartSidebar = document.getElementById("cartSidebar");
       const searchInput = document.getElementById("searchInput");
-
-      if (cartSidebar && cartSidebar.classList.contains("open")) {
-        toggleCart();
-      } else if (searchInput && searchInput.style.display !== "none") {
+      if (searchInput && searchInput.style.display !== "none") {
         searchInput.style.display = "none";
         searchInput.value = "";
         handleSearch({ target: { value: "" } }); // Clear search
@@ -486,19 +240,6 @@ function initializeKeyboardNavigation() {
   });
 }
 
-function goToBooks() {
-  // Try multiple possible paths
-  const possiblePaths = [
-    "ourbook.html",
-    "ourbook/ourbook.html",
-    "./ourbook/ourbook.html",
-    "../ourbook/ourbook.html",
-  ];
-
-  // Try each path until one works
-  window.location.href = "ourbook/ourbook.html";
-}
-
 // Performance Optimization - Lazy Loading Images
 function initializeLazyLoading() {
   const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -520,13 +261,6 @@ function initializeLazyLoading() {
   });
 }
 
-// Theme Toggle (Optional feature)
-function initializeThemeToggle() {
-  // You can add a theme toggle button if needed
-  const theme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", theme);
-}
-
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize carousel
@@ -538,13 +272,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize all interactive features
   initializeWishlistButtons();
   initializeShareButtons();
-  initializeSmoothScrolling();
-  initializeHeaderScrollEffect();
   initializeScrollAnimations();
   initializeProductCardEffects();
   initializeKeyboardNavigation();
   initializeLazyLoading();
-  initializeThemeToggle();
 
   // Create search functionality
   createSearchBar();
@@ -560,26 +291,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
-// Handle window resize
-window.addEventListener("resize", () => {
-  // Adjust cart sidebar for mobile
-  const cartSidebar = document.getElementById("cartSidebar");
-  if (cartSidebar && window.innerWidth <= 768) {
-    cartSidebar.style.width = "100vw";
-  } else if (cartSidebar) {
-    cartSidebar.style.width = "400px";
-  }
-});
-
 // Export functions for global access (if needed)
 window.bookstoreApp = {
   showSlide,
   changeSlide,
   currentSlide,
-  addToCart,
-  removeFromCart,
-  updateQuantity,
-  toggleCart,
-  checkout,
   showToast,
 };

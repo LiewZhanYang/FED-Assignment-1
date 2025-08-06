@@ -14,11 +14,12 @@
     <!-- Main Styles -->
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Navbar Component Loader -->
+    <!-- Component Loaders -->
     <script src="navbar-component/navbar-loader.js" defer></script>
+    <script src="footer-component/footer-loader.js" defer></script>
   </head>
   <body>
-    <!-- Navbar Component Container (will be populated automatically) -->
+    <!-- Navbar Component Container -->
     <div id="navbar-container" data-navbar-autoload></div>
 
     <!-- Enhanced Carousel -->
@@ -69,9 +70,9 @@
     <section class="products-section">
       <div class="section-header">
         <h2 class="section-title">Hot Sellers 🔥</h2>
-        <div class="cart-icon" onclick="toggleCart()">
+        <div class="cart-icon" onclick="window.cartComponent?.toggleCart()">
           <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count">0</span>
+          <span class="cart-count" id="mainCartCount">0</span>
         </div>
       </div>
 
@@ -90,7 +91,10 @@
               <button class="action-btn heart">
                 <i class="fas fa-heart"></i>
               </button>
-              <button class="action-btn cart" onclick="addToCart(this)">
+              <button
+                class="action-btn cart"
+                onclick="addToCartFromProduct(this)"
+              >
                 Add to Cart
               </button>
               <button class="action-btn share">
@@ -121,7 +125,10 @@
               <button class="action-btn heart">
                 <i class="fas fa-heart"></i>
               </button>
-              <button class="action-btn cart" onclick="addToCart(this)">
+              <button
+                class="action-btn cart"
+                onclick="addToCartFromProduct(this)"
+              >
                 Add to Cart
               </button>
               <button class="action-btn share">
@@ -152,7 +159,10 @@
               <button class="action-btn heart">
                 <i class="fas fa-heart"></i>
               </button>
-              <button class="action-btn cart" onclick="addToCart(this)">
+              <button
+                class="action-btn cart"
+                onclick="addToCartFromProduct(this)"
+              >
                 Add to Cart
               </button>
               <button class="action-btn share">
@@ -183,7 +193,10 @@
               <button class="action-btn heart">
                 <i class="fas fa-heart"></i>
               </button>
-              <button class="action-btn cart" onclick="addToCart(this)">
+              <button
+                class="action-btn cart"
+                onclick="addToCartFromProduct(this)"
+              >
                 Add to Cart
               </button>
               <button class="action-btn share">
@@ -202,124 +215,44 @@
       </div>
     </section>
 
-    <!-- Enhanced Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-      <div class="cart-header">
-        <h3 class="cart-title">Shopping Cart</h3>
-        <button class="close-cart" onclick="toggleCart()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
+    <!-- Cart Component Container -->
+    <div id="cart-container" data-cart-autoload></div>
 
-      <div class="cart-items" id="cartItems">
-        <div
-          class="cart-empty"
-          style="text-align: center; padding: 2rem; color: #9ca3af"
-        >
-          <i
-            class="fas fa-shopping-cart"
-            style="font-size: 3rem; margin-bottom: 1rem"
-          ></i>
-          <p>Your cart is empty</p>
-        </div>
-      </div>
-
-      <div class="cart-footer">
-        <button class="checkout-btn" onclick="checkout()">
-          Proceed to Checkout
-        </button>
-      </div>
-    </div>
-
-    <!-- Enhanced Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>About Us</h3>
-          <a
-            href="#location"
-            onclick="window.location.href='location_map/location.html'"
-            >Store Location</a
-          >
-          <a href="#career" onclick="window.location.href='career/career.html'"
-            >Career</a
-          >
-        </div>
-
-        <div class="footer-section">
-          <h3>Information</h3>
-          <a
-            href="#privacy"
-            onclick="window.location.href='privacy/privacy.html'"
-            >Privacy Policy</a
-          >
-          <a
-            href="#contact"
-            onclick="window.location.href='contactUs/contactus.html'"
-            >Contact Us</a
-          >
-        </div>
-
-        <div class="footer-section">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="#" class="social-icon"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer Component Container -->
+    <div id="footer-container" data-footer-autoload></div>
 
     <!-- Main Page Scripts -->
     <script src="script.js"></script>
 
-    <!-- Update navbar cart count when cart changes -->
+    <!-- Component Integration Script -->
     <script>
-      // Listen for cart updates and sync with navbar
-      function updateNavbarCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        const event = new CustomEvent("cartUpdated", {
-          detail: { count: cart.length },
-        });
-        window.dispatchEvent(event);
+      // Integration function for cart
+      function addToCartFromProduct(button) {
+        const productCard = button.closest(".product-card");
+        const productData = JSON.parse(productCard.dataset.product);
+
+        if (window.cartComponent) {
+          window.cartComponent.addToCart(productData);
+        } else {
+          console.log("Cart component not loaded yet");
+        }
       }
 
-      // Override the original addToCart function to update navbar
-      const originalAddToCart = window.addToCart;
-      window.addToCart = function (button) {
-        if (originalAddToCart) {
-          originalAddToCart(button);
-        }
-        updateNavbarCartCount();
-
-        // Show success notification in navbar
-        if (window.showNavbarNotification) {
-          const product = JSON.parse(
-            button.closest(".product-card").dataset.product
-          );
-          showNavbarNotification(
-            `Added "${product.title}" to cart!`,
-            "success"
-          );
-        }
-      };
-
-      // Set active page for navbar
+      // Set active page for navbar when loaded
       document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
-          if (window.setActiveNavPage) {
-            setActiveNavPage("home");
+          if (window.navbarComponent) {
+            window.navbarComponent.setActivePage("home");
           }
         }, 500);
       });
 
-      // Initialize cart count on page load
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(updateNavbarCartCount, 1000);
+      // Listen for cart updates and sync with main cart icon
+      window.addEventListener("cartUpdated", function (e) {
+        const mainCartCount = document.getElementById("mainCartCount");
+        if (mainCartCount) {
+          mainCartCount.textContent = e.detail.count > 0 ? e.detail.count : "0";
+        }
       });
     </script>
   </body>
