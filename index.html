@@ -4,46 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Popular Online Bookstore</title>
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <!-- Main Styles -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Navbar Component Loader -->
+    <script src="navbar-component/navbar-loader.js" defer></script>
   </head>
   <body>
-    <!-- Enhanced Header -->
-    <header>
-      <div class="logo-container">
-        <div class="logo-pic">PO</div>
-        <a href="#" class="logo">POPULAR ONLINE</a>
-      </div>
-
-      <nav class="navbar">
-        <a href="#home" onclick="window.location.href='../index.html'">Home</a>
-        <a href="#" onclick="window.location.href='../ourbook/ourbook.html'"
-          >Our Books</a
-        >
-        <a
-          href="#stationery"
-          onclick="window.location.href='../stationery/stationery.html'"
-          >Stationery</a
-        >
-        <a
-          href="#promotion"
-          onclick="window.location.href='../promotion/promotion.html'"
-          >Promotion</a
-        >
-        <a
-          href="#reviews"
-          onclick="window.location.href='../review/review.html'"
-          >Reviews</a
-        >
-      </nav>
-
-      <div class="user-icon">
-        <i class="fas fa-user"></i>
-      </div>
-    </header>
+    <!-- Navbar Component Container (will be populated automatically) -->
+    <div id="navbar-container" data-navbar-autoload></div>
 
     <!-- Enhanced Carousel -->
     <section class="carousel-section">
@@ -262,12 +238,10 @@
           <h3>About Us</h3>
           <a
             href="#location"
-            onclick="window.location.href='../location_map/location.html'"
+            onclick="window.location.href='location_map/location.html'"
             >Store Location</a
           >
-          <a
-            href="#career"
-            onclick="window.location.href='../career/career.html'"
+          <a href="#career" onclick="window.location.href='career/career.html'"
             >Career</a
           >
         </div>
@@ -276,12 +250,12 @@
           <h3>Information</h3>
           <a
             href="#privacy"
-            onclick="window.location.href='../privacy/privacy.html'"
+            onclick="window.location.href='privacy/privacy.html'"
             >Privacy Policy</a
           >
           <a
             href="#contact"
-            onclick="window.location.href='../contactUs/contactus.html'"
+            onclick="window.location.href='contactUs/contactus.html'"
             >Contact Us</a
           >
         </div>
@@ -300,9 +274,53 @@
       </div>
     </footer>
 
-    <!-- Search Bar (Hidden by default) -->
-    <div id="searchBarContainer"></div>
-
+    <!-- Main Page Scripts -->
     <script src="script.js"></script>
+
+    <!-- Update navbar cart count when cart changes -->
+    <script>
+      // Listen for cart updates and sync with navbar
+      function updateNavbarCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const event = new CustomEvent("cartUpdated", {
+          detail: { count: cart.length },
+        });
+        window.dispatchEvent(event);
+      }
+
+      // Override the original addToCart function to update navbar
+      const originalAddToCart = window.addToCart;
+      window.addToCart = function (button) {
+        if (originalAddToCart) {
+          originalAddToCart(button);
+        }
+        updateNavbarCartCount();
+
+        // Show success notification in navbar
+        if (window.showNavbarNotification) {
+          const product = JSON.parse(
+            button.closest(".product-card").dataset.product
+          );
+          showNavbarNotification(
+            `Added "${product.title}" to cart!`,
+            "success"
+          );
+        }
+      };
+
+      // Set active page for navbar
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          if (window.setActiveNavPage) {
+            setActiveNavPage("home");
+          }
+        }, 500);
+      });
+
+      // Initialize cart count on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(updateNavbarCartCount, 1000);
+      });
+    </script>
   </body>
 </html>

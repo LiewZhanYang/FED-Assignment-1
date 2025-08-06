@@ -1,0 +1,137 @@
+<!-- Navbar Component -->
+<header class="main-header">
+  <div class="header-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <div class="logo-pic">PO</div>
+      <a href="../index.html" class="logo">POPULAR ONLINE</a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar" id="navbar">
+      <a href="../index.html" class="nav-link" data-page="home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="../ourbook/ourbook.html" class="nav-link" data-page="books">
+        <i class="fas fa-book"></i>
+        <span>Our Books</span>
+      </a>
+      <a
+        href="../stationery/stationery.html"
+        class="nav-link"
+        data-page="stationery"
+      >
+        <i class="fas fa-pen"></i>
+        <span>Stationery</span>
+      </a>
+      <a
+        href="../promotion/promotion.html"
+        class="nav-link"
+        data-page="promotion"
+      >
+        <i class="fas fa-tags"></i>
+        <span>Promotion</span>
+      </a>
+      <a href="../review/review.html" class="nav-link" data-page="reviews">
+        <i class="fas fa-star"></i>
+        <span>Reviews</span>
+      </a>
+    </nav>
+
+    <!-- User Actions -->
+    <div class="user-actions">
+      <!-- Search Button -->
+      <button class="action-btn search-btn" id="searchToggle" title="Search">
+        <i class="fas fa-search"></i>
+      </button>
+
+      <!-- Cart Button -->
+      <button class="action-btn cart-btn" id="cartToggle" title="Shopping Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <!-- User Menu -->
+      <div class="user-menu">
+        <button class="action-btn user-btn" id="userMenuToggle" title="Account">
+          <i class="fas fa-user"></i>
+        </button>
+
+        <!-- User Dropdown -->
+        <div class="user-dropdown" id="userDropdown">
+          <div class="dropdown-header">
+            <div class="user-avatar">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+              <span class="user-name">Welcome, Guest</span>
+              <span class="user-status">Sign in for better experience</span>
+            </div>
+          </div>
+
+          <div class="dropdown-menu">
+            <a href="../account/account.html" class="dropdown-item">
+              <i class="fas fa-user-plus"></i>
+              <span>Create Account</span>
+            </a>
+            <a href="../login/login.html" class="dropdown-item">
+              <i class="fas fa-sign-in-alt"></i>
+              <span>Sign In</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="../profile/profile.html" class="dropdown-item">
+              <i class="fas fa-user-cog"></i>
+              <span>My Profile</span>
+            </a>
+            <a href="../orders/orders.html" class="dropdown-item">
+              <i class="fas fa-box"></i>
+              <span>My Orders</span>
+            </a>
+            <a href="../wishlist/wishlist.html" class="dropdown-item">
+              <i class="fas fa-heart"></i>
+              <span>Wishlist</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="../contactUs/contactus.html" class="dropdown-item">
+              <i class="fas fa-envelope"></i>
+              <span>Contact Us</span>
+            </a>
+            <a href="../privacy/privacy.html" class="dropdown-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Privacy Policy</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Bar (Hidden by default) -->
+  <div class="search-container" id="searchContainer">
+    <div class="search-bar">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search for books, authors, categories..."
+        id="searchInput"
+      />
+      <button class="search-submit" type="button">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="search-close" id="searchClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="search-suggestions" id="searchSuggestions">
+      <!-- Search suggestions will be populated here -->
+    </div>
+  </div>
+</header>
