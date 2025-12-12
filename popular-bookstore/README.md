@@ -1,59 +1,217 @@
-# PopularBookstore
+# Popular Bookstore - Angular Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+A modern, feature-rich online bookstore application built with Angular 17. This is a complete rewrite of the original project using Angular framework.
 
-## Development server
+## 🚀 Features
 
-To start a local development server, run:
+- **Modern UI/UX**: Clean, responsive design with smooth animations
+- **Shopping Cart**: Real-time cart updates with persistent storage
+- **Product Management**: Browse, search, and filter products
+- **Checkout System**: Complete checkout flow with form validation
+- **Responsive Design**: Mobile-first approach, works on all devices
+- **State Management**: RxJS-based reactive state management
+- **Toast Notifications**: User-friendly feedback system
+- **Lazy Loading**: Optimized performance with lazy-loaded modules
 
-```bash
-ng serve
+## 🛠️ Technology Stack
+
+- **Framework**: Angular 17
+- **Language**: TypeScript 5.2
+- **Styling**: CSS3 with CSS Variables
+- **State Management**: RxJS (BehaviorSubject, Observables)
+- **Forms**: Reactive Forms with custom validators
+- **Routing**: Angular Router with lazy loading
+- **Icons**: Font Awesome 6.5
+- **Fonts**: Google Fonts (Inter)
+
+## 📦 Installation
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start Development Server**
+   ```bash
+   npm start
+   ```
+   
+   The app will open at `http://localhost:4200`
+
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
+   
+   Build artifacts will be in the `dist/` directory
+
+## 📁 Project Structure
+
+```
+popular-bookstore/
+├── src/
+│   ├── app/
+│   │   ├── components/          # Shared components
+│   │   │   ├── navbar/
+│   │   │   ├── footer/
+│   │   │   ├── cart-sidebar/
+│   │   │   └── toast/
+│   │   ├── pages/               # Page components
+│   │   │   ├── home/
+│   │   │   └── checkout/
+│   │   ├── services/            # Core services
+│   │   │   ├── cart.service.ts
+│   │   │   ├── product.service.ts
+│   │   │   ├── auth.service.ts
+│   │   │   └── toast.service.ts
+│   │   ├── models/              # TypeScript interfaces
+│   │   │   └── product.model.ts
+│   │   ├── app.module.ts
+│   │   ├── app-routing.module.ts
+│   │   └── app.component.ts
+│   ├── assets/                  # Static assets
+│   │   └── image/
+│   ├── styles.css               # Global styles
+│   └── index.html
+├── angular.json                 # Angular CLI config
+├── package.json
+└── tsconfig.json
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🎯 Core Features Implementation
 
-## Code scaffolding
+### Shopping Cart Service
+- Persistent cart storage using localStorage
+- Real-time cart count and total calculation
+- Add/Remove/Update quantity functionality
+- Observable-based state management
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Product Service
+- Product catalog management
+- Search and filter functionality
+- Category-based filtering
+- Product details retrieval
 
-```bash
-ng generate component component-name
-```
+### Authentication Service
+- User login/logout
+- Session persistence
+- Auth guards for protected routes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Toast Service
+- Global notification system
+- Success/Error/Warning/Info types
+- Auto-dismiss with customizable duration
 
-```bash
-ng generate --help
-```
+## 🎨 Styling Architecture
 
-## Building
+- **CSS Variables**: Consistent theming
+- **BEM Methodology**: Component-scoped styles
+- **Responsive Design**: Mobile-first breakpoints
+- **Animations**: Smooth transitions and keyframe animations
+- **Gradients**: Modern gradient backgrounds
 
-To build the project run:
+## 📱 Responsive Breakpoints
 
-```bash
-ng build
-```
+- **Desktop**: > 1024px
+- **Tablet**: 768px - 1024px
+- **Mobile**: < 768px
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔒 Form Validation
 
-## Running unit tests
+The checkout form includes:
+- Required field validation
+- Email format validation
+- Phone number pattern validation
+- Credit card validation (when selected)
+- Real-time error messages
+- Custom validators
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🚦 Routing
 
-```bash
-ng test
-```
+- `/` - Home page with featured products
+- `/books` - Books catalog
+- `/stationery` - Stationery products
+- `/checkout` - Checkout page (lazy loaded)
+- `/account` - User account
+- `/contact` - Contact us
+- `/careers` - Career opportunities
+- `/promotions` - Special offers
+- `/privacy` - Privacy policy
+- `/locations` - Store locations
 
-## Running end-to-end tests
+## 🔄 State Management
 
-For end-to-end (e2e) testing, run:
+Using RxJS Observables for reactive state management:
+- `BehaviorSubject` for state containers
+- `Observable` streams for data flow
+- Async pipe in templates for automatic subscription management
 
-```bash
-ng e2e
-```
+## 📝 Development Guidelines
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. **Component Creation**: Use Angular CLI
+   ```bash
+   ng generate component components/component-name
+   ```
 
-## Additional Resources
+2. **Service Creation**:
+   ```bash
+   ng generate service services/service-name
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Lazy-loaded Module**:
+   ```bash
+   ng generate module pages/module-name --route module-name --module app.module
+   ```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Port already in use**
+   ```bash
+   ng serve --port 4201
+   ```
+
+2. **Dependencies error**
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+
+3. **Build errors**
+   ```bash
+   ng build --configuration production --verbose
+   ```
+
+## 🎓 Learning Resources
+
+- [Angular Documentation](https://angular.io/docs)
+- [RxJS Documentation](https://rxjs.dev/)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+## 📄 License
+
+This project is part of a Front-End Development assignment for revamping the Popular Bookstore website.
+
+## 👥 Contributors
+
+- Frontend Development Assignment 1
+- Course: Front-End Development
+- Target: Revamp Popular Malaysia Online Bookstore
+
+## 🔮 Future Enhancements
+
+- [ ] User authentication with backend API
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
+- [ ] Order history
+- [ ] Payment gateway integration
+- [ ] Email notifications
+- [ ] Admin dashboard
+- [ ] Product recommendations
+- [ ] Multi-language support
+- [ ] Dark mode theme
+
+---
+
+**Happy Coding! 🎉**
