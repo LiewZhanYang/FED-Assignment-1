@@ -34,6 +34,6 @@ export class ToastComponent implements OnInit {
       warning: 'fa-exclamation-triangle',
       info: 'fa-info-circle'
     };
-    return icons[type] || icons.info;
+    return icons[type] || icons['info'];
   }
 }
