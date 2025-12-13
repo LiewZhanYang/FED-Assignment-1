@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { BooksComponent } from './pages/books/books.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'books', component: HomeComponent }, // Will be replaced with BooksComponent
+  { path: 'books', component: BooksComponent }, // Books 书籍页面
   { path: 'stationery', component: HomeComponent }, // Will be replaced with StationeryComponent
   { path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutModule) },
   { path: 'account', component: HomeComponent }, // Will be replaced with AccountComponent

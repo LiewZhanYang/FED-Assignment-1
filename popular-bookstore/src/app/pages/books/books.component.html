@@ -152,10 +152,11 @@
               </button>
               <button 
                 class="overlay-btn"
+                [class.active]="isInWishlist(product.id)"
                 (click)="toggleWishlist(product, $event)"
-                title="Add to Wishlist"
+                [title]="isInWishlist(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'"
               >
-                <i class="far fa-heart"></i>
+                <i class="fa-heart" [class.fas]="isInWishlist(product.id)" [class.far]="!isInWishlist(product.id)"></i>
               </button>
             </div>
             <span class="discount-badge" *ngIf="product.discount">
@@ -165,18 +166,28 @@
 
           <div class="product-info">
             <h3 class="product-title">{{ product.title }}</h3>
+            <p class="product-author">
+              <i class="fas fa-user"></i> {{ product.author }}
+            </p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                <i class="fa-star" [class.fas]="product.rating > i" [class.far]="product.rating <= i"></i>
+              </ng-container>
+              <span class="rating-score">{{ product.rating }}</span>
+            </div>
             <p class="product-category" *ngIf="product.category">
               <i class="fas fa-bookmark"></i>
               {{ product.category }}
             </p>
-            
+            <div class="product-desc">
+              {{ product.description }}
+            </div>
             <div class="product-price">
               <span class="current-price">{{ product.price | currency }}</span>
               <span class="original-price" *ngIf="product.originalPrice">
                 {{ product.originalPrice | currency }}
               </span>
             </div>
-
             <button 
               class="add-to-cart-btn"
               (click)="addToCart(product, $event)"
@@ -241,7 +252,71 @@
           (click)="goToPage(currentPage + 1)"
         >
           <i class="fas fa-chevron-right"></i>
+          
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="quick-view-overlay" *ngIf="showQuickView" (click)="closeQuickView()">
+    <div class="quick-view-modal" (click)="$event.stopPropagation()" *ngIf="selectedProduct">
+      <button class="close-btn" (click)="closeQuickView()">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="quick-view-content">
+        <div class="quick-view-image">
+          <img [src]="selectedProduct.Image" [alt]="selectedProduct.title" />
+          <span class="discount-badge" *ngIf="selectedProduct.discount">
+            -{{ selectedProduct.discount }}%
+          </span>
+        </div>
+        
+        <div class="quick-view-info">
+          <h2 class="quick-view-title">{{ selectedProduct.title }}</h2>
+          <p class="quick-view-author">
+            <i class="fas fa-user"></i> {{ selectedProduct.author }}
+          </p>
+          
+          <div class="quick-view-rating">
+            <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+              <i class="fa-star" [class.fas]="selectedProduct.rating > i" [class.far]="selectedProduct.rating <= i"></i>
+            </ng-container>
+            <span class="rating-score">{{ selectedProduct.rating }}</span>
+          </div>
+          
+          <p class="quick-view-category" *ngIf="selectedProduct.category">
+            <i class="fas fa-bookmark"></i> {{ selectedProduct.category }}
+          </p>
+          
+          <p class="quick-view-description">{{ selectedProduct.description }}</p>
+          
+          <div class="quick-view-price">
+            <span class="current-price">{{ selectedProduct.price | currency }}</span>
+            <span class="original-price" *ngIf="selectedProduct.originalPrice">
+              {{ selectedProduct.originalPrice | currency }}
+            </span>
+          </div>
+          
+          <div class="quick-view-actions">
+            <button 
+              class="add-to-cart-btn"
+              (click)="addToCart(selectedProduct, $event); closeQuickView()"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button 
+              class="wishlist-btn"
+              [class.active]="isInWishlist(selectedProduct.id)"
+              (click)="toggleWishlist(selectedProduct, $event)"
+            >
+              <i class="fa-heart" [class.fas]="isInWishlist(selectedProduct.id)" [class.far]="!isInWishlist(selectedProduct.id)"></i>
+              {{ isInWishlist(selectedProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist' }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

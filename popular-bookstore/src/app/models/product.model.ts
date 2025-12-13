@@ -6,6 +6,9 @@ export interface Product {
   discount?: number;
   originalPrice?: number;
   category?: string;
+  author: string;
+  rating: number; // 1-5分
+  description: string;
 }
 
 export interface CartItem {

@@ -14,7 +14,10 @@ export class ProductService {
       price: 120,
       discount: 20,
       originalPrice: 150,
-      category: 'books'
+      category: 'books',
+      author: 'John Smith',
+      rating: 4.5,
+      description: 'A thrilling tale of adventure and discovery.'
     },
     {
       id: 1,
@@ -23,7 +26,10 @@ export class ProductService {
       price: 85,
       discount: 15,
       originalPrice: 100,
-      category: 'books'
+      category: 'books',
+      author: 'Jane Doe',
+      rating: 4.8,
+      description: 'Master the essentials of JavaScript with hands-on examples.'
     },
     {
       id: 2,
@@ -32,7 +38,10 @@ export class ProductService {
       price: 95,
       discount: 10,
       originalPrice: 105,
-      category: 'books'
+      category: 'books',
+      author: 'Eric Gamma',
+      rating: 4.9,
+      description: 'A classic introduction and deep dive into software design.'
     },
     {
       id: 3,
@@ -41,7 +50,10 @@ export class ProductService {
       price: 110,
       discount: 25,
       originalPrice: 135,
-      category: 'books'
+      category: 'books',
+      author: 'Susan Lee',
+      rating: 4.3,
+      description: 'Best practices and new technologies for web developers.'
     }
   ];
 

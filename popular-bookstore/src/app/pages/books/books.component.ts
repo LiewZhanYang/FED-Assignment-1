@@ -4,6 +4,7 @@ import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { ToastService } from '../../services/toast.service';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'app-books',
@@ -28,6 +29,13 @@ export class BooksComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 12;
   totalPages: number = 1;
+  
+  // Wishlist
+  wishlistIds: number[] = [];
+  
+  // Quick View
+  showQuickView: boolean = false;
+  selectedProduct: Product | null = null;
   
   // Categories
   categories = [
@@ -61,10 +69,16 @@ export class BooksComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private wishlistService: WishlistService
   ) {}
 
   ngOnInit(): void {
+    // Load wishlist
+    this.wishlistService.wishlist$.subscribe(ids => {
+      this.wishlistIds = ids;
+    });
+    
     this.products$ = this.productService.getProducts();
     this.products$.subscribe(products => {
       this.allProducts = products;
@@ -80,7 +94,8 @@ export class BooksComponent implements OnInit {
       const query = this.searchQuery.toLowerCase();
       filtered = filtered.filter(p => 
         p.title.toLowerCase().includes(query) ||
-        (p.category && p.category.toLowerCase().includes(query))
+        (p.category && p.category.toLowerCase().includes(query)) ||
+        (p.author && p.author.toLowerCase().includes(query))
       );
     }
     
@@ -173,12 +188,27 @@ export class BooksComponent implements OnInit {
 
   toggleWishlist(product: Product, event: Event): void {
     event.stopPropagation();
-    this.toastService.success('Added to wishlist! ❤️');
+    const added = this.wishlistService.toggleWishlist(product.id);
+    if (added) {
+      this.toastService.success(`${product.title} added to wishlist! ❤️`);
+    } else {
+      this.toastService.info(`${product.title} removed from wishlist`);
+    }
+  }
+
+  isInWishlist(productId: number): boolean {
+    return this.wishlistService.isInWishlist(productId);
   }
 
   quickView(product: Product, event: Event): void {
     event.stopPropagation();
-    this.toastService.info('Quick view coming soon!');
+    this.selectedProduct = product;
+    this.showQuickView = true;
+  }
+
+  closeQuickView(): void {
+    this.showQuickView = false;
+    this.selectedProduct = null;
   }
 
   clearFilters(): void {
