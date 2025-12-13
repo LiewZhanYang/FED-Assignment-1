@@ -21,6 +21,7 @@ export class CheckoutComponent implements OnInit {
   orderNumber = '';
   promoCode = '';
   discount = 0;
+  currentDate = new Date();
 
   constructor(
     private fb: FormBuilder,
