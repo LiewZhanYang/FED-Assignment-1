@@ -1,3 +1,13 @@
+export interface Review {
+  id: number;
+  reviewerName: string;
+  rating: number; // 1-5
+  title?: string;
+  comment: string;
+  date: string;
+  verified?: boolean;
+}
+
 export interface Product {
   id: number;
   Image: string;
@@ -7,8 +17,10 @@ export interface Product {
   originalPrice?: number;
   category?: string;
   author: string;
-  rating: number; // 1-5分
+  rating: number; // 1-5分，平均评分
   description: string;
+  reviews?: Review[]; // 评论列表
+  reviewCount?: number; // 评论总数
 }
 
 export interface CartItem {

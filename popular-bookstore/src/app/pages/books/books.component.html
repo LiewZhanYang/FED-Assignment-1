@@ -174,6 +174,9 @@
                 <i class="fa-star" [class.fas]="product.rating > i" [class.far]="product.rating <= i"></i>
               </ng-container>
               <span class="rating-score">{{ product.rating }}</span>
+              <span class="review-count" *ngIf="product.reviewCount">
+                ({{ product.reviewCount }})
+              </span>
             </div>
             <p class="product-category" *ngIf="product.category">
               <i class="fas fa-bookmark"></i>
@@ -284,6 +287,9 @@
               <i class="fa-star" [class.fas]="selectedProduct.rating > i" [class.far]="selectedProduct.rating <= i"></i>
             </ng-container>
             <span class="rating-score">{{ selectedProduct.rating }}</span>
+            <span class="review-count" *ngIf="selectedProduct.reviewCount">
+              ({{ selectedProduct.reviewCount }} reviews)
+            </span>
           </div>
           
           <p class="quick-view-category" *ngIf="selectedProduct.category">
@@ -315,6 +321,34 @@
               <i class="fa-heart" [class.fas]="isInWishlist(selectedProduct.id)" [class.far]="!isInWishlist(selectedProduct.id)"></i>
               {{ isInWishlist(selectedProduct.id) ? 'Remove from Wishlist' : 'Add to Wishlist' }}
             </button>
+          </div>
+
+          <!-- Reviews Section -->
+          <div class="quick-view-reviews" *ngIf="selectedProduct.reviews && selectedProduct.reviews.length > 0">
+            <h3 class="reviews-title">
+              <i class="fas fa-comments"></i>
+              Customer Reviews ({{ selectedProduct.reviews.length }})
+            </h3>
+            <div class="reviews-list">
+              <div class="review-item" *ngFor="let review of selectedProduct.reviews.slice(0, 3)">
+                <div class="review-header">
+                  <div class="reviewer-info">
+                    <strong>{{ review.reviewerName }}</strong>
+                    <span class="verified-badge" *ngIf="review.verified">
+                      <i class="fas fa-shield-check"></i> Verified
+                    </span>
+                  </div>
+                  <div class="review-rating">
+                    <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                      <i class="fa-star" [class.fas]="review.rating > i" [class.far]="review.rating <= i"></i>
+                    </ng-container>
+                  </div>
+                </div>
+                <p class="review-title" *ngIf="review.title"><strong>{{ review.title }}</strong></p>
+                <p class="review-comment">{{ review.comment }}</p>
+                <span class="review-date">{{ review.date }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

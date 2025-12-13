@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { ToastService } from '../../services/toast.service';
 import { WishlistService } from '../../services/wishlist.service';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-books',
@@ -63,14 +64,17 @@ export class BooksComponent implements OnInit {
     { value: 'price-low', label: 'Price: Low to High' },
     { value: 'price-high', label: 'Price: High to Low' },
     { value: 'title-az', label: 'Title: A-Z' },
-    { value: 'title-za', label: 'Title: Z-A' }
+    { value: 'title-za', label: 'Title: Z-A' },
+    { value: 'rating-high', label: 'Rating: High to Low' },
+    { value: 'rating-low', label: 'Rating: Low to High' }
   ];
 
   constructor(
     private productService: ProductService,
     private cartService: CartService,
     private toastService: ToastService,
-    private wishlistService: WishlistService
+    private wishlistService: WishlistService,
+    private filterService: FilterService
   ) {}
 
   ngOnInit(): void {
@@ -87,64 +91,20 @@ export class BooksComponent implements OnInit {
   }
 
   applyFilters(): void {
-    let filtered = [...this.allProducts];
-    
-    // Search filter
-    if (this.searchQuery.trim()) {
-      const query = this.searchQuery.toLowerCase();
-      filtered = filtered.filter(p => 
-        p.title.toLowerCase().includes(query) ||
-        (p.category && p.category.toLowerCase().includes(query)) ||
-        (p.author && p.author.toLowerCase().includes(query))
-      );
-    }
-    
-    // Category filter
-    if (this.selectedCategory !== 'all') {
-      filtered = filtered.filter(p => 
-        p.category?.toLowerCase() === this.selectedCategory.toLowerCase()
-      );
-    }
-    
-    // Price range filter
-    if (this.selectedPriceRange !== 'all') {
-      const [min, max] = this.parsePriceRange(this.selectedPriceRange);
-      filtered = filtered.filter(p => {
-        if (max === Infinity) return p.price >= min;
-        return p.price >= min && p.price <= max;
-      });
-    }
+    // Use FilterService for filtering
+    let filtered = this.filterService.filterProducts(this.allProducts, {
+      searchQuery: this.searchQuery,
+      category: this.selectedCategory,
+      priceRange: this.selectedPriceRange
+    });
     
     // Sort
-    filtered = this.sortProducts(filtered);
+    filtered = this.filterService.sortProducts(filtered, this.sortBy);
     
     // Pagination
-    this.totalPages = Math.ceil(filtered.length / this.itemsPerPage);
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    this.filteredProducts = filtered.slice(startIndex, startIndex + this.itemsPerPage);
-  }
-
-  parsePriceRange(range: string): [number, number] {
-    if (range === '0-20') return [0, 20];
-    if (range === '20-50') return [20, 50];
-    if (range === '50-100') return [50, 100];
-    if (range === '100+') return [100, Infinity];
-    return [0, Infinity];
-  }
-
-  sortProducts(products: Product[]): Product[] {
-    switch (this.sortBy) {
-      case 'price-low':
-        return products.sort((a, b) => a.price - b.price);
-      case 'price-high':
-        return products.sort((a, b) => b.price - a.price);
-      case 'title-az':
-        return products.sort((a, b) => a.title.localeCompare(b.title));
-      case 'title-za':
-        return products.sort((a, b) => b.title.localeCompare(a.title));
-      default:
-        return products;
-    }
+    const result = this.filterService.paginateProducts(filtered, this.currentPage, this.itemsPerPage);
+    this.filteredProducts = result.paginated;
+    this.totalPages = result.totalPages;
   }
 
   onCategoryChange(category: string): void {
