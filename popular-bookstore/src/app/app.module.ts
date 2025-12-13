@@ -16,6 +16,7 @@ import { ToastComponent } from './components/toast/toast.component';
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { BooksComponent } from './pages/books/books.component';
+import { StationeryComponent } from './pages/stationery/stationery.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BooksComponent } from './pages/books/books.component';
     CartSidebarComponent,
     ToastComponent,
     HomeComponent,
-    BooksComponent
+    BooksComponent,
+    StationeryComponent
   ],
   imports: [
     BrowserModule,

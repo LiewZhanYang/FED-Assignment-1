@@ -138,6 +138,163 @@ export class ProductService {
           verified: false
         }
       ]
+    },
+    // Stationery Products
+    {
+      id: 100,
+      Image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&h=300&fit=crop',
+      title: 'Premium Fountain Pen',
+      price: 45.99,
+      discount: 23,
+      originalPrice: 59.99,
+      category: 'writing',
+      brand: 'Pilot',
+      rating: 4.8,
+      description: 'Professional fountain pen with smooth ink flow and elegant design.',
+      reviewCount: 156,
+      features: ['Smooth ink flow', 'Ergonomic grip', 'Refillable cartridge'],
+      inStock: true,
+      reviews: [
+        {
+          id: 101,
+          reviewerName: 'Alex Thompson',
+          rating: 5,
+          title: 'Excellent quality!',
+          comment: 'Writes smoothly and feels great in hand. Highly recommend!',
+          date: '2024-12-10',
+          verified: true
+        }
+      ]
+    },
+    {
+      id: 101,
+      Image: 'https://images.unsplash.com/photo-1606559013429-3dbcb1c0e5b4?w=300&h=300&fit=crop',
+      title: 'Mechanical Pencil Set',
+      price: 24.99,
+      discount: 17,
+      originalPrice: 29.99,
+      category: 'writing',
+      brand: 'Faber-Castell',
+      rating: 4.6,
+      description: 'Professional mechanical pencils for precise drawing and writing.',
+      reviewCount: 89,
+      features: ['0.5mm lead', 'Comfortable grip', 'Lead indicator'],
+      inStock: true,
+      reviews: [
+        {
+          id: 102,
+          reviewerName: 'Maria Garcia',
+          rating: 4,
+          title: 'Good quality',
+          comment: 'Nice pencils, good for technical drawing.',
+          date: '2024-12-08',
+          verified: true
+        }
+      ]
+    },
+    {
+      id: 102,
+      Image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=300&fit=crop',
+      title: 'Premium Marker Set',
+      price: 32.99,
+      discount: 18,
+      originalPrice: 39.99,
+      category: 'writing',
+      brand: 'Stabilo',
+      rating: 4.7,
+      description: 'High-quality markers with vibrant colors for professional use.',
+      reviewCount: 203,
+      features: ['48 colors', 'Dual tips', 'Non-toxic ink'],
+      inStock: true,
+      reviews: [
+        {
+          id: 103,
+          reviewerName: 'John Davis',
+          rating: 5,
+          title: 'Amazing colors!',
+          comment: 'Vibrant colors and long-lasting. Perfect for art projects.',
+          date: '2024-12-05',
+          verified: true
+        }
+      ]
+    },
+    {
+      id: 103,
+      Image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=300&h=300&fit=crop',
+      title: 'Leather Notebook',
+      price: 28.99,
+      discount: 14,
+      originalPrice: 33.99,
+      category: 'paper',
+      brand: 'Moleskine',
+      rating: 4.9,
+      description: 'Premium leather-bound notebook with high-quality paper.',
+      reviewCount: 312,
+      features: ['Leather cover', '200 pages', 'Lined paper'],
+      inStock: true,
+      reviews: [
+        {
+          id: 104,
+          reviewerName: 'Sarah Lee',
+          rating: 5,
+          title: 'Beautiful notebook',
+          comment: 'Love the quality and design. Perfect for journaling.',
+          date: '2024-12-12',
+          verified: true
+        }
+      ]
+    },
+    {
+      id: 104,
+      Image: 'https://images.unsplash.com/photo-1532619675605-1d6b3a4e5c2e?w=300&h=300&fit=crop',
+      title: 'Desk Organizer Set',
+      price: 35.99,
+      discount: 20,
+      originalPrice: 44.99,
+      category: 'organizers',
+      brand: 'IKEA',
+      rating: 4.5,
+      description: 'Modern desk organizer to keep your workspace tidy.',
+      reviewCount: 178,
+      features: ['Multiple compartments', 'Modern design', 'Easy to clean'],
+      inStock: true,
+      reviews: [
+        {
+          id: 105,
+          reviewerName: 'David Kim',
+          rating: 4,
+          title: 'Great organizer',
+          comment: 'Keeps my desk organized. Good value for money.',
+          date: '2024-12-07',
+          verified: false
+        }
+      ]
+    },
+    {
+      id: 105,
+      Image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=300&fit=crop',
+      title: 'Watercolor Paint Set',
+      price: 42.99,
+      discount: 25,
+      originalPrice: 57.99,
+      category: 'art',
+      brand: 'Winsor & Newton',
+      rating: 4.8,
+      description: 'Professional watercolor paints with vibrant pigments.',
+      reviewCount: 245,
+      features: ['24 colors', 'Professional quality', 'Long-lasting'],
+      inStock: true,
+      reviews: [
+        {
+          id: 106,
+          reviewerName: 'Emma Wilson',
+          rating: 5,
+          title: 'Perfect for artists',
+          comment: 'High-quality paints with excellent color payoff.',
+          date: '2024-12-09',
+          verified: true
+        }
+      ]
     }
   ];
 

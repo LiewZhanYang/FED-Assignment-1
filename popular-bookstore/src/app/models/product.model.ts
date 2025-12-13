@@ -16,11 +16,14 @@ export interface Product {
   discount?: number;
   originalPrice?: number;
   category?: string;
-  author: string;
+  author?: string; // 书籍作者
+  brand?: string; // 品牌（用于文具等）
   rating: number; // 1-5分，平均评分
   description: string;
   reviews?: Review[]; // 评论列表
   reviewCount?: number; // 评论总数
+  features?: string[]; // 产品特性（用于文具等）
+  inStock?: boolean; // 是否有库存
 }
 
 export interface CartItem {
