@@ -16,6 +16,11 @@ export class CheckoutComponent implements OnInit {
   cartItems$!: Observable<CartItem[]>;
   cartTotal$!: Observable<number>;
   isProcessing = false;
+  currentStep = 1;
+  orderSuccess = false;
+  orderNumber = '';
+  promoCode = '';
+  discount = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -63,21 +68,121 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.checkoutForm.valid && !this.isProcessing) {
-      this.isProcessing = true;
-      
-      // Simulate payment processing
-      setTimeout(() => {
-        this.toastService.success('Order placed successfully! 🎉');
-        this.cartService.clearCart();
-        this.isProcessing = false;
-        this.router.navigate(['/']);
-      }, 2000);
+  updateQuantity(item: CartItem, change: number): void {
+    if (change > 0) {
+      this.cartService.addToCart(item.product);
     } else {
-      this.toastService.error('Please fill in all required fields correctly');
-      this.markFormGroupTouched(this.checkoutForm);
+      this.cartService.updateQuantity(item.product.id, item.quantity - 1);
     }
+  }
+
+  removeItem(item: CartItem): void {
+    this.cartService.removeFromCart(item.product.id);
+    this.toastService.success('Item removed from cart');
+  }
+
+  getTax(): number {
+    let subtotal = 0;
+    this.cartTotal$.subscribe(total => subtotal = total).unsubscribe();
+    return (subtotal - this.discount) * 0.06;
+  }
+
+  getTotal(): number {
+    let subtotal = 0;
+    this.cartTotal$.subscribe(total => subtotal = total).unsubscribe();
+    return subtotal + 10 - this.discount + this.getTax();
+  }
+
+  applyPromo(): void {
+    if (this.promoCode.toUpperCase() === 'BOOK10') {
+      let subtotal = 0;
+      this.cartTotal$.subscribe(total => subtotal = total).unsubscribe();
+      this.discount = subtotal * 0.1;
+      this.toastService.success('🎉 Promo code applied! 10% discount');
+    } else if (this.promoCode.toUpperCase() === 'SAVE20') {
+      let subtotal = 0;
+      this.cartTotal$.subscribe(total => subtotal = total).unsubscribe();
+      this.discount = subtotal * 0.2;
+      this.toastService.success('🎉 Promo code applied! 20% discount');
+    } else if (this.promoCode) {
+      this.toastService.error('❌ Invalid promo code');
+    }
+  }
+
+  nextStep(): void {
+    if (this.currentStep === 2 && !this.validateShipping()) {
+      this.toastService.error('⚠️ Please fill in all required shipping fields');
+      this.markFormGroupTouched(this.checkoutForm);
+      return;
+    }
+    if (this.currentStep === 3 && !this.validatePayment()) {
+      this.toastService.error('⚠️ Please complete payment information');
+      this.markFormGroupTouched(this.checkoutForm);
+      return;
+    }
+    
+    if (this.currentStep < 4) {
+      this.currentStep++;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  previousStep(): void {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  validateShipping(): boolean {
+    const fields = ['fullName', 'email', 'phone', 'address', 'city', 'state', 'postalCode'];
+    return fields.every(field => {
+      const control = this.checkoutForm.get(field);
+      return control && control.valid;
+    });
+  }
+
+  validatePayment(): boolean {
+    if (this.checkoutForm.get('paymentMethod')?.value === 'credit') {
+      const fields = ['cardNumber', 'cardName', 'expiryDate', 'cvv'];
+      return fields.every(field => {
+        const control = this.checkoutForm.get(field);
+        return control && control.valid;
+      });
+    }
+    return true;
+  }
+
+  placeOrder(): void {
+    if (!this.checkoutForm.valid) {
+      this.toastService.error('Please complete all required fields');
+      return;
+    }
+
+    this.isProcessing = true;
+    this.orderNumber = 'ORD' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+    
+    // Simulate payment processing
+    setTimeout(() => {
+      this.orderSuccess = true;
+      this.isProcessing = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Could add API call here to save order
+      console.log('Order placed:', {
+        orderNumber: this.orderNumber,
+        shipping: this.checkoutForm.value,
+        total: this.getTotal()
+      });
+      
+      // Clear cart after successful order
+      this.cartService.clearCart();
+    }, 2000);
+  }
+
+  goToHome(): void {
+    this.orderSuccess = false;
+    this.router.navigate(['/']);
   }
 
   private markFormGroupTouched(formGroup: FormGroup): void {
@@ -98,7 +203,7 @@ export class CheckoutComponent implements OnInit {
     if (field?.hasError('pattern')) {
       if (fieldName === 'phone') return 'Invalid phone number';
       if (fieldName === 'postalCode') return 'Invalid postal code';
-      if (fieldName === 'cardNumber') return 'Invalid card number';
+      if (fieldName === 'cardNumber') return 'Invalid card number (16 digits)';
       if (fieldName === 'cvv') return 'Invalid CVV';
       if (fieldName === 'expiryDate') return 'Invalid date (MM/YY)';
     }
